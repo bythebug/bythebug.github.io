@@ -23,11 +23,11 @@ author:
   # Biographic information
   avatar: "profile.png"
   name: "Suraj Van Verma"
-  # pronouns         : "he/him"
+  pronouns         : #URL
   bio: "Graduate Student at McGill University"
   location: "Montreal, QC"
   employer: "McGill University"
-  uri: "https://bythebug.github.io" # Used for author profile link
+  # uri: "https://bythebug.github.io" # Used for author profile link
   email: "suraj.verma@mail.mcgill.ca"
 
   # Academic websites
