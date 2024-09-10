@@ -1,10 +1,10 @@
 ---
-permalink: /markdown/
-title: "Markdown"
+permalink: /resources/
+title: "Resources"
 author_profile: true
 redirect_from: 
   - /md/
-  - /markdown.html
+  - /resources.html
 ---
 ## Locations of key files/directories
 
@@ -166,10 +166,6 @@ This is the regular text.[^1] This is more regular text.[^note]
 [^note]: This is another footnote.
 ```
 
-[^1]: Such as this footnote.
-    
-[^note]: When using text for footnotes markers, no spaces are permitted in the name.
-    
 ## HTML Tags
 
 ### Address Tag
@@ -190,7 +186,7 @@ The abbreviation CSS stands for "Cascading Style Sheets".
 
 ### Cite Tag
 
-"Code is poetry." ---`<cite>`Automattic`</cite>`
+"Code is poetry." ---`<cite>`Automattic `</cite>`
 
 ### Code Tag
 
@@ -210,7 +206,7 @@ print("Hello World!", quote = FALSE)
 
 ### Strike Tag
 
-This tag will let you `<strike>`strikeout text`</strike>`.
+This tag will let you `<strike>`strikeout text `</strike>`.
 
 ### Emphasize Tag
 
@@ -218,11 +214,11 @@ The emphasize tag should _italicize_ text.
 
 ### Insert Tag
 
-This tag should denote `<ins>`inserted`</ins>` text.
+This tag should denote `<ins>`inserted `</ins>` text.
 
 ### Keyboard Tag
 
-This scarcely known tag emulates `<kbd>`keyboard text`</kbd>`, which is usually styled like the `<code>` tag.
+This scarcely known tag emulates `<kbd>`keyboard text `</kbd>`, which is usually styled like the `<code>` tag.
 
 ### Preformatted Tag
 
@@ -248,18 +244,22 @@ This tag shows **bold text**.
 
 ### Subscript Tag
 
-Getting our science styling on with H`<sub>`2`</sub>`O, which should push the "2" down.
+Getting our science styling on with H `<sub>`2 `</sub>`O, which should push the "2" down.
 
 ### Superscript Tag
 
-Still sticking with science and Isaac Newton's E = MC`<sup>`2`</sup>`, which should lift the 2 up.
+Still sticking with science and Isaac Newton's E = MC `<sup>`2 `</sup>`, which should lift the 2 up.
 
 ### Variable Tag
 
-This allows you to denote `<var>`variables`</var>`.
+This allows you to denote `<var>`variables `</var>`.
 
 ---
 
 **Footnotes**
 
-The footnotes in the page will be returned following this line, return to the section on `<a href="#footnotes">`Markdown Footnotes`</a>`.
+The footnotes in the page will be returned following this line, return to the section on `<a href="#footnotes">`Markdown Footnotes `</a>`.
+
+[^1]: Such as this footnote.
+    
+[^note]: When using text for footnotes markers, no spaces are permitted in the name.
