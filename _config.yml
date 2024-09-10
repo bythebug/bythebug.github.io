@@ -23,7 +23,7 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Suraj Van Verma"
-  pronouns         : "he/him"  
+  # pronouns         : "he/him"  
   bio              : "The only man who never makes mistakes is the man who never does anything."
   location         : "Montreal, QC"
   employer         : "McGill University"
@@ -58,7 +58,7 @@ author:
   instagram          : "suraj.builds"  
   # lastfm           : # Username
   linkedin         :  "bythebug"
-  # mastodon         : # URL
+  # mastodon         : # UR
   # medium           : # URL
   # pinterest        : # Username
   # soundcloud       : # Username
