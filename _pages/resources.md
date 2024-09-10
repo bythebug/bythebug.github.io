@@ -14,7 +14,13 @@ Below is a list of various research internship programs available across differe
 
 1. [TEEP Taiwan Research Internship](https://www.linkedin.com/posts/bythebug_fully-funded-research-internship-in-activity-7139944390327705600-yk62?utm_source=share&utm_medium=member_desktop)
 2. [SIPGA - Singapore Research Internship](https://www.linkedin.com/posts/bythebug_fully-funded-internship-stipend-123067-activity-7180221483850334208-MmrM?utm_source=share&utm_medium=member_desktop)
+3. `<a href="#" target="_blank"> NewTab Testing</a>`
 
+<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-html">
+
+<a href="https://example.com" target="_blank">Link text</a>
+
+</code></div></div></pre>
 
 ## Additional Preperation Resources
 
