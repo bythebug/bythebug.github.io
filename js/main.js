@@ -1,7 +1,11 @@
 // Loader
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
-    loader.classList.add('hidden');
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        document.body.classList.add('loaded');
+    }, 1000);
 });
 
 // Custom cursor
@@ -28,14 +32,28 @@ document.addEventListener('mouseup', () => {
 
 // Navbar scroll effect
 const nav = document.querySelector('.nav');
-const navHeight = nav.getBoundingClientRect().height;
+let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > navHeight) {
-        nav.classList.add('scrolled');
-    } else {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        nav.classList.remove('scroll-up');
         nav.classList.remove('scrolled');
+        return;
     }
+    
+    if (currentScroll > lastScroll && !nav.classList.contains('scroll-down')) {
+        nav.classList.remove('scroll-up');
+        nav.classList.add('scroll-down');
+        nav.classList.add('scrolled');
+    } else if (currentScroll < lastScroll && nav.classList.contains('scroll-down')) {
+        nav.classList.remove('scroll-down');
+        nav.classList.add('scroll-up');
+        nav.classList.add('scrolled');
+    }
+    
+    lastScroll = currentScroll;
 });
 
 // Mobile menu toggle
@@ -47,53 +65,79 @@ navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
 });
 
-// Smooth scrolling for navigation links
+// Active navigation link
+const sections = document.querySelectorAll('section[id]');
+
+function highlightNavLink() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink?.classList.add('active');
+        } else {
+            navLink?.classList.remove('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', highlightNavLink);
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        const offset = nav.getBoundingClientRect().height;
+        const offset = nav.offsetHeight;
         
         window.scrollTo({
             top: target.offsetTop - offset,
             behavior: 'smooth'
         });
-        
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
     });
 });
 
 // Typing effect
 const typingText = document.querySelector('.typing-text');
-const words = ['innovative solutions', 'beautiful websites', 'scalable applications', 'the future'];
+const words = [
+    'scalable solutions',
+    'enterprise applications',
+    'cloud architectures',
+    'innovative systems'
+];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
+let isWaiting = false;
 
 function type() {
     const currentWord = words[wordIndex];
-    const speed = isDeleting ? 50 : 100;
+    const speed = isDeleting ? 30 : 100;
     
     if (!isDeleting && charIndex <= currentWord.length) {
-        typingText.textContent = `I build ${currentWord.substring(0, charIndex)}`;
+        typingText.textContent = `Building ${currentWord.substring(0, charIndex)}`;
         charIndex++;
     }
     
     if (isDeleting && charIndex >= 0) {
-        typingText.textContent = `I build ${currentWord.substring(0, charIndex)}`;
+        typingText.textContent = `Building ${currentWord.substring(0, charIndex)}`;
         charIndex--;
     }
     
-    if (charIndex === currentWord.length + 1) {
-        isDeleting = true;
-        setTimeout(type, 1500);
+    if (!isDeleting && charIndex === currentWord.length && !isWaiting) {
+        isWaiting = true;
+        setTimeout(() => {
+            isDeleting = true;
+            isWaiting = false;
+        }, 2000);
         return;
     }
     
-    if (charIndex === 0 && isDeleting) {
+    if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
     }
@@ -107,21 +151,27 @@ type();
 particlesJS('particles-js', {
     particles: {
         number: {
-            value: 80,
+            value: 50,
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: '#2563eb'
+            value: '#FF9900'
         },
         shape: {
             type: 'circle'
         },
         opacity: {
-            value: 0.5,
-            random: false
+            value: 0.6,
+            random: true,
+            animation: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
         },
         size: {
             value: 3,
@@ -130,8 +180,8 @@ particlesJS('particles-js', {
         line_linked: {
             enable: true,
             distance: 150,
-            color: '#2563eb',
-            opacity: 0.4,
+            color: '#FF9900',
+            opacity: 0.2,
             width: 1
         },
         move: {
@@ -141,7 +191,12 @@ particlesJS('particles-js', {
             random: false,
             straight: false,
             out_mode: 'out',
-            bounce: false
+            bounce: false,
+            attract: {
+                enable: true,
+                rotateX: 600,
+                rotateY: 1200
+            }
         }
     },
     interactivity: {
@@ -161,11 +216,11 @@ particlesJS('particles-js', {
             grab: {
                 distance: 140,
                 line_linked: {
-                    opacity: 1
+                    opacity: 0.5
                 }
             },
             push: {
-                particles_nb: 4
+                particles_nb: 3
             }
         }
     },
@@ -178,21 +233,24 @@ const skillBars = document.querySelectorAll('.skill-progress');
 function animateSkillBars() {
     skillBars.forEach(bar => {
         const progress = bar.getAttribute('data-progress');
-        bar.style.width = progress + '%';
+        bar.style.width = `${progress}%`;
     });
 }
 
 // Project cards tilt effect
 VanillaTilt.init(document.querySelectorAll('.project-card'), {
-    max: 15,
+    max: 10,
     speed: 400,
+    scale: 1.02,
     glare: true,
-    'max-glare': 0.2
+    'max-glare': 0.2,
+    gyroscope: true
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for animations
 const observerOptions = {
-    threshold: 0.2
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -202,12 +260,13 @@ const observer = new IntersectionObserver((entries) => {
             if (entry.target.classList.contains('about')) {
                 animateSkillBars();
             }
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
+document.querySelectorAll('.section, .project-card, .skill').forEach(element => {
+    observer.observe(element);
 });
 
 // Contact form handling
@@ -224,23 +283,31 @@ contactForm.addEventListener('submit', async (e) => {
     
     const submitBtn = contactForm.querySelector('.submit-btn');
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     
     try {
-        // Here you would typically send the form data to your backend
-        // For now, we'll just simulate a delay
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 2000));
         
         contactForm.reset();
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        submitBtn.classList.add('success');
         
         setTimeout(() => {
             submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('success');
         }, 3000);
     } catch (error) {
-        submitBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+        submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed to Send';
+        submitBtn.classList.add('error');
+        
         setTimeout(() => {
             submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('error');
         }, 3000);
     }
 }); 
