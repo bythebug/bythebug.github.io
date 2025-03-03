@@ -10,7 +10,6 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  basePath: '/bythebug.github.io',
 };
 
 export default nextConfig;
