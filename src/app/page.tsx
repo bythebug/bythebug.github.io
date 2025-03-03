@@ -37,7 +37,7 @@ export default function Home() {
         <section className="container flex flex-col items-center justify-center gap-4 py-24 md:py-32">
           <div className="flex flex-col items-center gap-4 text-center">
             <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-              Hey, I'm Suraj Verma 👋
+              Hey, I&apos;m Suraj Verma 👋
             </h1>
             <h2 className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
               Software Engineer and Creator passionate about building innovative solutions
