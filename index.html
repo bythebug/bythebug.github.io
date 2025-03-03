@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Verma | Software Engineer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" />
+            </svg>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">SV</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section home">
+        <div class="home-content">
+            <h1 class="glitch" data-text="Hello, I'm Suraj">Hello, I'm Suraj</h1>
+            <div class="typing-text">I build </div>
+            <p class="home-description">Software Engineer and Creator passionate about building innovative solutions</p>
+            <div class="social-links">
+                <a href="https://github.com/bythebug" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/bythebug" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com/in/bythebug" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="particles" id="particles-js"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="about-content">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a passionate Software Engineer with expertise in building modern web applications and innovative solutions. My journey in tech has been driven by curiosity and a desire to create impactful experiences.</p>
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="skill-name">Frontend Development</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Backend Development</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">UI/UX Design</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="assets/images/profile.jpg" alt="Suraj Verma">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-tilt>
+                <div class="project-content">
+                    <div class="project-image">
+                        <img src="assets/images/portfolio.jpg" alt="Portfolio Website">
+                    </div>
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">A modern portfolio website with stunning animations and interactive elements.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/bythebug/bythebug.github.io" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://bythebug.github.io" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- More project cards with the same structure -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>hello@bythebug.dev</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>New Delhi, India</p>
+                </div>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Name</label>
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" required></textarea>
+                    <label for="message">Message</label>
+                    <span class="focus-border"></span>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Suraj Verma. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://github.com/bythebug" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/bythebug" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/bythebug" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
