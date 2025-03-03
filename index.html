@@ -4,26 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suraj Verma | Software Engineer</title>
-    <meta name="description" content="Senior Software Engineer specializing in scalable web applications and cloud architecture. Experienced in building enterprise-level solutions.">
+    <meta name="description" content="Senior Software Engineer specializing in scalable web applications and cloud architecture.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Loader -->
-    <div class="loader">
-        <div class="loader-content">
-            <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-        </div>
-    </div>
-
-    <!-- Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <div class="loader"></div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -34,43 +21,26 @@
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </nav>
 
     <!-- Home Section -->
     <section id="home" class="section home">
         <div class="home-content">
-            <h1 class="glitch">Software Engineer</h1>
-            <div class="typing-text">Building scalable solutions</div>
+            <h1>Software Engineer</h1>
             <p class="home-description">
                 Experienced Software Engineer specializing in building enterprise-level applications 
                 with a focus on scalability, performance, and user experience. 
                 Passionate about solving complex problems through innovative technology.
             </p>
             <div class="social-links">
-                <a href="https://github.com/bythebug" target="_blank" class="social-link" aria-label="GitHub Profile">
+                <a href="https://github.com/bythebug" target="_blank" class="social-link">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/bythebug" target="_blank" class="social-link" aria-label="LinkedIn Profile">
+                <a href="https://linkedin.com/in/bythebug" target="_blank" class="social-link">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <div class="arrows">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
         </div>
-        <div class="particles" id="particles-js"></div>
     </section>
 
     <!-- About Section -->
@@ -88,33 +58,27 @@
                         <div class="skill">
                             <div class="skill-name" data-progress="95">Cloud Architecture</div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
+                                <div class="skill-progress"></div>
                             </div>
                         </div>
                         <div class="skill">
                             <div class="skill-name" data-progress="90">System Design</div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
+                                <div class="skill-progress"></div>
                             </div>
                         </div>
                         <div class="skill">
                             <div class="skill-name" data-progress="85">Full Stack Development</div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
+                                <div class="skill-progress"></div>
                             </div>
                         </div>
                         <div class="skill">
                             <div class="skill-name" data-progress="88">DevOps & CI/CD</div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88"></div>
+                                <div class="skill-progress"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <img src="assets/images/profile.jpg" alt="Suraj Verma - Software Engineer" loading="lazy">
-                        <div class="image-overlay"></div>
                     </div>
                 </div>
             </div>
@@ -125,11 +89,8 @@
     <section id="projects" class="section projects">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card" data-tilt>
+            <div class="project-card">
                 <div class="project-content">
-                    <div class="project-image">
-                        <img src="assets/images/cloud-platform.jpg" alt="Cloud Platform Architecture" loading="lazy">
-                    </div>
                     <h3 class="project-title">Enterprise Cloud Platform</h3>
                     <p class="project-description">
                         Designed and implemented a scalable cloud platform handling 1M+ daily requests.
@@ -139,21 +100,12 @@
                         <span>AWS</span>
                         <span>Kubernetes</span>
                         <span>Microservices</span>
-                        <span>Docker</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/bythebug/cloud-platform" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card" data-tilt>
+            <div class="project-card">
                 <div class="project-content">
-                    <div class="project-image">
-                        <img src="assets/images/analytics-dashboard.jpg" alt="Analytics Dashboard" loading="lazy">
-                    </div>
                     <h3 class="project-title">Real-time Analytics Platform</h3>
                     <p class="project-description">
                         Built a real-time analytics dashboard processing 10TB+ data daily.
@@ -161,23 +113,14 @@
                     </p>
                     <div class="project-tags">
                         <span>Python</span>
-                        <span>Apache Kafka</span>
+                        <span>Kafka</span>
                         <span>Elasticsearch</span>
-                        <span>React</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/bythebug/analytics-platform" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card" data-tilt>
+            <div class="project-card">
                 <div class="project-content">
-                    <div class="project-image">
-                        <img src="assets/images/ml-pipeline.jpg" alt="ML Pipeline System" loading="lazy">
-                    </div>
                     <h3 class="project-title">ML Pipeline System</h3>
                     <p class="project-description">
                         Developed an end-to-end ML pipeline system with automated training and deployment.
@@ -187,12 +130,6 @@
                         <span>TensorFlow</span>
                         <span>MLOps</span>
                         <span>Python</span>
-                        <span>Docker</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/bythebug/ml-pipeline" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -205,19 +142,12 @@
         <div class="contact-content">
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <p>suraj@bythebug.dev</p>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
                     <h3>Location</h3>
                     <p>New Delhi, India</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>Open for Opportunities</h3>
-                    <p>Available for Senior Engineering Roles</p>
                 </div>
             </div>
             <form class="contact-form" id="contact-form">
@@ -233,10 +163,7 @@
                     <textarea id="message" required></textarea>
                     <label for="message">Message</label>
                 </div>
-                <button type="submit" class="submit-btn">
-                    <span>Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -244,21 +171,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 Suraj Verma. Built with precision and passion.</p>
+            <p>&copy; 2024 Suraj Verma</p>
             <div class="footer-social">
-                <a href="https://github.com/bythebug" target="_blank" aria-label="GitHub Profile">
+                <a href="https://github.com/bythebug" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/bythebug" target="_blank" aria-label="LinkedIn Profile">
+                <a href="https://linkedin.com/in/bythebug" target="_blank">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html> 
