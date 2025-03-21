@@ -1,188 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraj Verma | Software Engineer</title>
-    <meta name="description" content="Senior Software Engineer specializing in scalable web applications and cloud architecture.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suraj Van Verma | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      padding: 0 1.5rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      background: linear-gradient(to right, #00f0ff, #00ffa3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      font-size: 1.25rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    .hero a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #00ffa3;
+      color: #000;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .hero a:hover {
+      background: #00f0ff;
+      color: #000;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader"></div>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-logo">SV</div>
-        <div class="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="section home">
-        <div class="home-content">
-            <h1>Software Engineer</h1>
-            <p class="home-description">
-                Experienced Software Engineer specializing in building enterprise-level applications 
-                with a focus on scalability, performance, and user experience. 
-                Passionate about solving complex problems through innovative technology.
-            </p>
-            <div class="social-links">
-                <a href="https://github.com/bythebug" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/bythebug" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="about-content">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        With over 5 years of experience in software development, I specialize in 
-                        building scalable web applications and microservices. My expertise includes 
-                        cloud architecture, distributed systems, and performance optimization.
-                    </p>
-                    <div class="skills">
-                        <div class="skill">
-                            <div class="skill-name" data-progress="95">Cloud Architecture</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name" data-progress="90">System Design</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name" data-progress="85">Full Stack Development</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name" data-progress="88">DevOps & CI/CD</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Enterprise Cloud Platform</h3>
-                    <p class="project-description">
-                        Designed and implemented a scalable cloud platform handling 1M+ daily requests.
-                        Achieved 99.99% uptime and 40% cost reduction through efficient architecture.
-                    </p>
-                    <div class="project-tags">
-                        <span>AWS</span>
-                        <span>Kubernetes</span>
-                        <span>Microservices</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Real-time Analytics Platform</h3>
-                    <p class="project-description">
-                        Built a real-time analytics dashboard processing 10TB+ data daily.
-                        Implemented efficient data pipelines reducing processing time by 60%.
-                    </p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Kafka</span>
-                        <span>Elasticsearch</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">ML Pipeline System</h3>
-                    <p class="project-description">
-                        Developed an end-to-end ML pipeline system with automated training and deployment.
-                        Reduced model deployment time from days to hours.
-                    </p>
-                    <div class="project-tags">
-                        <span>TensorFlow</span>
-                        <span>MLOps</span>
-                        <span>Python</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p>suraj@bythebug.dev</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Location</h3>
-                    <p>New Delhi, India</p>
-                </div>
-            </div>
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" required>
-                    <label for="name">Full Name</label>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" required>
-                    <label for="email">Email Address</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" required></textarea>
-                    <label for="message">Message</label>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Suraj Verma</p>
-            <div class="footer-social">
-                <a href="https://github.com/bythebug" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/bythebug" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+  <section class="hero">
+    <h1>Hey, I’m Suraj</h1>
+    <p>I build powerful backend systems, beautiful experiences, and content that connects.</p>
+    <a href="/resume.pdf" target="_blank">Download Resume</a>
+  </section>
 </body>
-</html> 
+</html>
