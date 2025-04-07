@@ -58,7 +58,6 @@
 /* Individual post page */
 .post {
     margin-top: 20px;
-    width: 100%;
 }
 
 .post h1 {
@@ -88,10 +87,20 @@
     text-decoration: underline;
 }
 
-/* Ensure blog content fits in the layout */
-section .blog-posts,
-section .post {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+/* Ensure blog content works with the layout */
+section {
+    width: 500px;
+    float: right;
+    padding-bottom: 50px;
+}
+
+@media print, screen and (max-width: 960px) {
+    section {
+        float: none;
+        width: auto;
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
 }
