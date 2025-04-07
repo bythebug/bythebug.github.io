@@ -1,0 +1,24 @@
+title: ByteTheBug
+description: Personal website and blog
+baseurl: ""
+url: "https://bythebug.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:title/
+
+exclude:
+  - .git/
+  - .gitignore
+  - README.md
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+
+include:
+  - _pages
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
