@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} - {{ site.title }}</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/blog.css">
-</head>
-<body>
-    {{ content }}
-    <script src="{{ site.baseurl }}/javascripts/script.js"></script>
-</body>
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>{{ page.title }} - {{ site.title }}</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ site.baseurl }}/">Suraj Van Verma</a></h1>
+        
+        <img src="{{ site.baseurl }}/assets/logo.png" alt="Logo" />
+        
+        <p>
+          Instagram: <a href="https://www.instagram.com/suraj.builds/">suraj.builds</a><br>
+        </p>
+
+        <p>News <small>[<a href="#">More Updates</a>] <br>
+          2023.08 Joined <a href="https://djeminy.github.io/">Software Engineering Lab (SEL)</a> at McGill University as MS(CS) Student in Fall 2023.</small>
+        </p>
+      </header>
+
+      <section>
+        {{ content }}
+      </section>
+
+      <footer>
+        <p>Want to chat? The best way to reach me is on <a href="http://www.linkedin.com/in/bythebug">LinkedIn</a>.</p>
+      </footer>
+    </div>
+    <script src="{{ site.baseurl }}/javascripts/scale.fix.js"></script>
+  </body>
 </html>
