@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/styles.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/blog.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>{{ page.title }} - {{ site.title }}</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ site.baseurl }}/">Suraj Van Verma</a></h1>
-        
-        <img src="{{ site.baseurl }}/assets/logo.png" alt="Logo" />
-        
-        <p>
-          Instagram: <a href="https://www.instagram.com/suraj.builds/">suraj.builds</a><br>
-        </p>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ page.title }} — Suraj Van Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/portfolio.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/blog-modern.css">
+</head>
+<body>
 
-        <p>News <small>[<a href="#">More Updates</a>] <br>
-          2023.08 Joined <a href="https://djeminy.github.io/">Software Engineering Lab (SEL)</a> at McGill University as MS(CS) Student in Fall 2023.</small>
-        </p>
-      </header>
-
-      <section>
-        {{ content }}
-      </section>
-
-      <footer>
-        <p>Want to chat? The best way to reach me is on <a href="http://www.linkedin.com/in/bythebug">LinkedIn</a>.</p>
-      </footer>
+  <nav>
+    <a href="{{ site.baseurl }}/" class="nav-name">Suraj Van Verma</a>
+    <div class="nav-links">
+      <a href="{{ site.baseurl }}/#projects">Work</a>
+      <a href="{{ site.baseurl }}/#about">About</a>
+      <a href="https://github.com/bythebug" target="_blank" rel="noopener">GitHub</a>
+      <a href="/blog/" class="nav-cta">Blog →</a>
     </div>
-    <script src="{{ site.baseurl }}/javascripts/scale.fix.js"></script>
-  </body>
+  </nav>
+
+  <main class="blog-main">
+    <div class="blog-container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-name">Suraj Van Verma</span>
+    <span class="footer-copy">@bythebug · bythebug.github.io</span>
+    <div class="footer-links">
+      <a href="https://github.com/bythebug" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{{ site.baseurl }}/">Portfolio</a>
+    </div>
+  </footer>
+
+</body>
 </html>

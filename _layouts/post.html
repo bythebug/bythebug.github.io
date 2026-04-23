@@ -1,15 +1,17 @@
 ---
 layout: default
 ---
-<article class="post">
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">
-        <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
-    </div>
-    <div class="post-content">
-        {{ content }}
-    </div>
-    <div class="post-navigation">
-        <a href="{{ site.baseurl }}/blog" class="back-to-blog">← Back to Blog</a>
-    </div>
-</article>
+<div class="post-header">
+  <a href="{{ site.baseurl }}/blog/" class="post-back">← Back to Blog</a>
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
+</div>
+
+<div class="post-content">
+  {{ content }}
+</div>
+
+<div class="post-footer">
+  <a href="{{ site.baseurl }}/blog/" class="post-back">← Back to Blog</a>
+  <a href="{{ site.baseurl }}/" class="post-back">Portfolio →</a>
+</div>

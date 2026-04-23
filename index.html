@@ -1,131 +1,487 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <title>Suraj Van Verma — Backend Engineer & AI Builder</title>
+  <meta name="description" content="Suraj Van Verma — Backend engineer and AI builder. I build distributed systems, ship AI tools, and turn ideas into products. MS Computer Science, McGill University." />
+  <meta name="author" content="Suraj Van Verma" />
 
-<!-- Begin Optimized SEO Tags -->
-<title>Suraj Van Verma | Startups, Research &amp; AI</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta name="author" content="Suraj Van Verma" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Suraj Van Verma is a software engineer, researcher, and entrepreneur exploring AI, startups, and academic innovation. Portfolio, projects, and content." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Suraj Van Verma — Backend Engineer & AI Builder" />
+  <meta property="og:description" content="Backend engineer and AI builder. I build distributed systems, ship AI tools, and turn ideas into products. MS CS, McGill University." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bythebug.github.io/" />
+  <meta property="og:image" content="https://bythebug.github.io/assets/logo.png" />
 
-<!-- Open Graph Tags -->
-<meta property="og:title" content="Suraj Van Verma | Startups, Research & AI" />
-<meta property="og:description" content="Explore the work of Suraj Van Verma — a software engineer, AI researcher, and startup founder. Discover projects, research, and insights." />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://bythebug.github.io/" />
-<meta property="og:site_name" content="Suraj Van Verma" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://bythebug.github.io/assets/logo.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Suraj Van Verma — Backend Engineer & AI Builder" />
+  <meta name="twitter:description" content="Backend engineer and AI builder. Distributed systems, AI tools, shipped products." />
+  <meta name="twitter:image" content="https://bythebug.github.io/assets/logo.png" />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Suraj Van Verma | Startups, Research & AI" />
-<meta name="twitter:description" content="Software engineer, content creator, and AI researcher. Building at the intersection of startups, research, and community." />
-<meta name="twitter:image" content="https://bythebug.github.io/assets/logo.png" />
+  <link rel="canonical" href="https://bythebug.github.io/" />
 
-<!-- Canonical -->
-<link rel="canonical" href="https://bythebug.github.io/" />
-
-<!-- JSON-LD Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Suraj Van Verma",
-  "url": "https://bythebug.github.io/",
-  "description": "Software engineer, content creator, and AI researcher. Building at the intersection of startups, research, and community.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Suraj Van Verma",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://bythebug.github.io/assets/logo.png"
-    }
-  },
-  "author": {
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Suraj Van Verma"
+    "name": "Suraj Van Verma",
+    "url": "https://bythebug.github.io/",
+    "image": "https://bythebug.github.io/assets/logo.png",
+    "jobTitle": "Software Engineer",
+    "sameAs": [
+      "https://github.com/bythebug",
+      "https://www.linkedin.com/in/bythebug"
+    ]
   }
-}
-</script>
-<!-- End Optimized SEO Tags -->
+  </script>
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<!-- <title>Suraj Van Verma | Startups, Research &amp; AI</title> -->
-<!-- <meta name="generator" content="Jekyll v3.10.0" /> -->
-<!-- <meta property="og:title" content="Suraj Van Verma" /> -->
-<!-- <meta name="author" content="Suraj Van Verma" /> -->
-<!-- <meta property="og:locale" content="en_US" /> -->
-<!-- <meta name="description" content="My github page" /> -->
-<!-- <meta property="og:description" content="My github page" /> -->
-<!-- <link rel="canonical" href="https://bythebug.github.io/" /> -->
-<!-- <meta property="og:url" content="https://bythebug.github.io/" /> -->
-<!-- <meta property="og:site_name" content="Suraj Van Verma" /> -->
-<!-- <meta property="og:type" content="website" /> -->
-<!-- <meta name="twitter:card" content="summary" /> -->
-<!-- <meta property="twitter:title" content="Suraj Van Verma" /> -->
-<!-- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Suraj Van Verma"},"description":"My github page","headline":"Suraj Van Verma","name":"Suraj Van Verma","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://bythebug.github.io/assets/logos/logo.jpg"},"name":"Suraj Van Verma"},"url":"https://bythebug.github.io/"}</script> -->
-<!-- End Jekyll SEO tag -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/portfolio.css">
+</head>
+<body>
 
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="https://bythebug.github.io/">Suraj Van Verma</a></h1>
-        
-          <img src="/assets/logo.png" alt="Logo" />
-        
-
-        <p>Contact: <a href="mailto:suraj.verma@mail.mcgill.ca">suraj.verma [at] mail.mcgill.ca</a><br>
-          GitHub: <a href="https://github.com/bythebug">bythebug</a><br>
-          <!-- Twitter: <a href="https://twitter.com/bythebug_">@bythebug_</a><br> -->
-          Instagram: <a href="https://www.instagram.com/suraj.builds/">suraj.builds</a><br>
-          <!--Calendar: <a href="https://calendar.google.com/calendar?cid=eXVqaW5nbGFpMDcwN0BnbWFpbC5jb20">Scheduled</a><br> &mdash; -->
-          <!-- <a href="/docs/cvs/cv-eylai.pdf">CV</a>, <a href="/docs/transcripts/transcript-eylai.pdf">transcript</a> -->
-        </p>
-
-        <p>News <small>[<a href="#">More Updates</a>] <br>
-          2023.08 Joined <a href="https://djeminy.github.io/">Software Engineering Lab (SEL)</a> at McGill University as MS(CS) Student in Fall 2023.</small>
-        </p>
-
-      </header>
-      <section>
-        <h1>About Me</h1>
-
-        <p><em>View my <a href="http://github.github.com/github-flavored-markdown/sample_content.html">complete portfolio.</a>.</em></p>
-
-        <p>I am Suraj Van Verma, a <b>full-time Software Engineer</b> with a Master's degree in Computer Science from <b>McGill University</b>. My professional journey is built on a foundation of academic excellence and a deep passion for technology that transforms lives and businesses.</p>
-
-        <p>My academic background at McGill provided me with a robust understanding of computer science principles, algorithms, and software architecture. This knowledge, combined with my professional experience, has enabled me to develop <b>innovative solutions to complex technical challenges </b>while maintaining a focus on user experience and business value.</p>
-
-        <p>As a content creator, I specialize in producing <b>cinematic vlogs</b> capture the essence of experiences, places, and stories. My work has been featured on LinkedIn, where I share not only my creative endeavors but also insights into the evolving landscape of digital media and technology. Through my content, I aim to inspire others to see the world through a different lens and appreciate the beauty in everyday moments.</p>
-
-        <p>My entrepreneurial spirit has driven me to establish and lead my own startup, where we are working on <b>cutting-edge technologies </b>to address real-world challenges. Building a company from the ground up has taught me invaluable lessons about resilience, strategic thinking, and the importance of assembling a team that shares a common vision and values.</p>
-
-        <p><b>Artificial Intelligence</b> has always fascinated me, and I have dedicated significant time to understanding its potential and implications. I actively engage with the AI community, staying abreast of the latest developments and exploring how AI can be ethically integrated into various sectors to enhance efficiency and create new possibilities.</p>
- 
-        <p>Perhaps one of my most fulfilling roles is as the founder of <b>GradYard</b>, a community dedicated to mentoring students who aspire to pursue academic excellence. Through GradYard, I provide guidance, resources, and support to help young minds navigate the complexities of higher education and research. Witnessing the growth and success of my mentees brings me immense joy and reinforces my belief in the power of knowledge sharing and community building.</p>
-
-        <p>When I'm not coding, creating content, running my startup, exploring AI, or mentoring students, you can find me reading about emerging technologies, hiking in nature, or engaging in thoughtful conversations about the future of innovation and education. I believe in continuous learning and am always open to new ideas and perspectives that challenge my thinking and broaden my horizons.</p>
-
-        <p> @bythebug // everywhere on the internet.  </p>
-
-      </section>
-      <footer>
-        <p>Want to chat? The best way to reach me is on <a href="http://www.linkedin.com/in/bythebug">LinkedIn</a>.</p>
-        <!-- <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p> -->
-      </footer>
+  <!-- ============================================================ NAV -->
+  <nav>
+    <span class="nav-name">Suraj Van Verma</span>
+    <div class="nav-links">
+      <a href="https://github.com/bythebug" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:suraj.verma@mail.mcgill.ca">Email</a>
+      <a href="/blog/" class="nav-cta">Blog →</a>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+  </nav>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Available for new opportunities · Montreal, QC</div>
+
+      <h1>
+        Backend Engineer.<br>
+        <span class="accent">AI Builder.</span><br>
+        Startup Founder.
+      </h1>
+
+      <p class="hero-sub">
+        I build distributed systems that scale, ship AI tools that work, and turn
+        ideas into real products. MS Computer Science, McGill University.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work →</a>
+        <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="btn-secondary">Connect on LinkedIn</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">500k+</span>
+          <span class="stat-label">events/sec processed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">22</span>
+          <span class="stat-label">open-source projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">McGill</span>
+          <span class="stat-label">MS Computer Science</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">2019</span>
+          <span class="stat-label">shipping code since</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Things I've Built</h2>
+        <p class="section-desc">Real projects, real tech stacks, real impact. Everything links to source code.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Real-Time Log Processing -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System" target="_blank" rel="noopener" class="project-card-link" aria-label="View Real-Time Distributed Log Processing System on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">⚡</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">Real-Time Log Processing System</h3>
+          <p class="project-desc">Distributed event pipeline designed for high-throughput log ingestion and processing with sub-10ms latency at scale.</p>
+          <div class="project-highlight">500,000+ events/sec · sub-10ms latency</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Image Detector -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/AI-Image-Detector" target="_blank" rel="noopener" class="project-card-link" aria-label="View AI Image Detector on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">🔍</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">AI Image Detector</h3>
+          <p class="project-desc">Privacy-first tool to detect AI-generated vs real images using C2PA/JUMBF content provenance standards and EXIF/XMP metadata. Runs entirely in-browser — zero data retention.</p>
+          <div class="project-highlight">Client-only · C2PA/JUMBF standards · No server</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">JavaScript</span>
+            <span class="tag">C2PA</span>
+            <span class="tag">EXIF/XMP</span>
+            <span class="tag">Privacy</span>
+          </div>
+        </div>
+
+        <!-- Project 3: urltrim -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/urltrim" target="_blank" rel="noopener" class="project-card-link" aria-label="View urltrim on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">🔗</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">urltrim</h3>
+          <p class="project-desc">Personal URL shortener with custom aliases, click analytics, rate limiting, and async job processing via message queue.</p>
+          <div class="project-highlight">FastAPI · Async · Rate limiting · Click analytics</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">RabbitMQ</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Vani AI -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/Vani-AI" target="_blank" rel="noopener" class="project-card-link" aria-label="View Vani AI on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">🤖</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">Vani AI</h3>
+          <p class="project-desc">LLM chatbot infrastructure for WhatsApp. Handles multi-turn conversations, context management, and multi-model routing.</p>
+          <div class="project-highlight">LLM infra · WhatsApp API · Multi-turn context</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">WhatsApp API</span>
+          </div>
+        </div>
+
+        <!-- Project 5: resumo -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD" target="_blank" rel="noopener" class="project-card-link" aria-label="View resumo on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">📄</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">resumo</h3>
+          <p class="project-desc">AI-powered tool that tailors LaTeX resumes to specific job descriptions. Supports local models via Ollama and cloud via Claude API.</p>
+          <div class="project-highlight">Ollama · Claude API · LaTeX parsing · JD matching</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">LaTeX</span>
+          </div>
+        </div>
+
+        <!-- Project 6: MetroPass -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/MetroPass-Travel-Card-App" target="_blank" rel="noopener" class="project-card-link" aria-label="View MetroPass on GitHub"></a>
+          <div class="project-header">
+            <span class="project-icon">🚇</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">MetroPass</h3>
+          <p class="project-desc">Privacy-centric transit payment app with contactless payments, RSA encryption, OAuth, and full GDPR/PIPEDA compliance.</p>
+          <div class="project-highlight">RSA encryption · OAuth · GDPR/PIPEDA compliant</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">React Native</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">RSA</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="https://github.com/bythebug" target="_blank" rel="noopener" class="btn-secondary">
+          View all 22 repositories on GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="section-header">
+            <p class="section-label">About</p>
+            <h2 class="section-title">Who I Am</h2>
+          </div>
+          <div class="about-text">
+            <p>
+              I'm a backend engineer and AI builder with a <strong>Master's in Computer Science from McGill University</strong>.
+              My work lives at the intersection of distributed systems, AI tooling, and building things people actually use.
+            </p>
+            <p>
+              I care about <strong>systems that scale, products that ship, and code that's worth reading</strong>.
+              When I pick up a problem, I think about it end-to-end — from architecture to deployment to what happens
+              when it breaks at 2am.
+            </p>
+            <p>
+              I'm the founder of <strong>GradYard</strong>, a mentoring community I built to help students navigate
+              grad school applications and research. I've also done research at McGill's
+              <strong>Software Engineering Lab (SEL)</strong>.
+            </p>
+            <p>
+              Outside of code, I make cinematic content, read obsessively about technology and startups,
+              and think about how AI changes what it means to build software.
+            </p>
+            <a href="mailto:suraj.verma@mail.mcgill.ca" class="about-cta">
+              Let's talk → suraj.verma@mail.mcgill.ca
+            </a>
+          </div>
+        </div>
+
+        <div class="about-sidebar">
+          <div class="info-block">
+            <div class="info-block-label">Currently</div>
+            <div class="info-block-value">
+              Open to founding engineer &amp; staff engineer roles at early-stage startups
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block-label">Education</div>
+            <div class="info-block-value">
+              MS Computer Science<br>
+              McGill University, Montréal
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block-label">Location</div>
+            <div class="info-block-value">
+              Montréal, QC — open to remote
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block-label">Founder</div>
+            <div class="info-block-value">
+              GradYard — mentoring community for grad school aspirants
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block-label">Find me everywhere</div>
+            <div class="info-block-value">
+              <a href="https://github.com/bythebug" target="_blank" rel="noopener">@bythebug</a> on GitHub &amp; Instagram
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ SKILLS -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Stack</p>
+        <h2 class="section-title">What I Work With</h2>
+        <p class="section-desc">Tools and technologies I reach for when building backend systems and AI-powered products.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-category-name">Languages</div>
+          <div class="skill-list">
+            <span class="skill-item">Python</span>
+            <span class="skill-item">TypeScript</span>
+            <span class="skill-item">Swift</span>
+            <span class="skill-item">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-name">Backend</div>
+          <div class="skill-list">
+            <span class="skill-item">FastAPI</span>
+            <span class="skill-item">Flask</span>
+            <span class="skill-item">Django</span>
+            <span class="skill-item">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-name">Databases</div>
+          <div class="skill-list">
+            <span class="skill-item">PostgreSQL</span>
+            <span class="skill-item">Redis</span>
+            <span class="skill-item">Firebase</span>
+            <span class="skill-item">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-name">Infrastructure</div>
+          <div class="skill-list">
+            <span class="skill-item">Docker</span>
+            <span class="skill-item">Kafka</span>
+            <span class="skill-item">RabbitMQ</span>
+            <span class="skill-item">AWS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-name">AI / ML</div>
+          <div class="skill-list">
+            <span class="skill-item">LLMs (Claude, GPT)</span>
+            <span class="skill-item">Ollama</span>
+            <span class="skill-item">Scikit-learn</span>
+            <span class="skill-item">RAG pipelines</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-name">Frontend / Mobile</div>
+          <div class="skill-list">
+            <span class="skill-item">React</span>
+            <span class="skill-item">React Native</span>
+            <span class="skill-item">SwiftUI</span>
+            <span class="skill-item">Plotly Dash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ EXPERIENCE -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">Where I've Been</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 — Present</div>
+          <div class="timeline-role">MS Computer Science Researcher</div>
+          <div class="timeline-org">Software Engineering Lab (SEL), McGill University</div>
+          <div class="timeline-desc">Research in software engineering, systems design, and AI applications. Building tools and publishing findings at the intersection of theory and practice.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 — Present</div>
+          <div class="timeline-role">Founder</div>
+          <div class="timeline-org">GradYard</div>
+          <div class="timeline-desc">Built and lead a mentoring community for students navigating graduate school applications and academic research. Providing guidance, resources, and direct mentorship at scale.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019 — 2023</div>
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-org">Full-time Industry</div>
+          <div class="timeline-desc">Built backend systems and full-stack products across multiple companies. Deep work in APIs, distributed architecture, data pipelines, and mobile applications.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ BLOG TEASER -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Writing</p>
+        <h2 class="section-title">My Blog</h2>
+        <p class="section-desc">I write about engineering, AI, startups, and building things.</p>
+      </div>
+      <a href="/blog/" class="blog-cta-card">
+        <div class="blog-cta-text">
+          <div class="blog-cta-title">Read the Blog</div>
+          <div class="blog-cta-sub">Thoughts on backend engineering, AI tooling, startups, and the craft of building software.</div>
+        </div>
+        <span class="blog-cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ============================================================ CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label">Contact</p>
+        <h2 class="contact-heading">Let's build something.</h2>
+        <p class="contact-sub">
+          I'm open to founding engineer roles, early-stage startup conversations,
+          interesting side projects, and just good technical discussions.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:suraj.verma@mail.mcgill.ca" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/bythebug" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.instagram.com/suraj.builds/" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @suraj.builds
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer>
+    <span class="footer-name">Suraj Van Verma</span>
+    <span class="footer-copy">@bythebug · bythebug.github.io</span>
+    <div class="footer-links">
+      <a href="https://github.com/bythebug" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </footer>
+
+</body>
 </html>

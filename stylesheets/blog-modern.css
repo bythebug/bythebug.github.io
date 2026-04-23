@@ -1,0 +1,238 @@
+/* ============================================================
+   Blog Modern CSS — matches portfolio dark theme
+   ============================================================ */
+
+.blog-main {
+  padding-top: 100px;
+  min-height: calc(100vh - 120px);
+}
+
+.blog-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 40px 100px;
+}
+
+/* Blog listing page */
+.blog-listing-header {
+  margin-bottom: 60px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.blog-listing-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.blog-listing-header p {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.blog-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.blog-post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: none;
+}
+
+.blog-post-item:last-child {
+  border-bottom: none;
+}
+
+.blog-post-date {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.blog-post-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  transition: color 0.15s;
+}
+
+.blog-post-item:hover .blog-post-title {
+  color: var(--accent);
+}
+
+.blog-post-excerpt {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.blog-read-more {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 4px;
+  transition: gap 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Individual post */
+.post-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  transition: color 0.15s;
+}
+
+.post-back:hover {
+  color: var(--text);
+}
+
+.post-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.post-date {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Post content typography */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.post-content h2 { font-size: 26px; }
+.post-content h3 { font-size: 20px; }
+.post-content h4 { font-size: 17px; }
+
+.post-content p {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(249, 115, 22, 0.4);
+  transition: text-decoration-color 0.15s;
+}
+
+.post-content a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.post-content ul,
+.post-content ol {
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.75;
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+
+.post-content li {
+  margin-bottom: 6px;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 20px;
+  margin: 28px 0;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.post-content code {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Consolas', monospace;
+  font-size: 13px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: var(--accent);
+}
+
+.post-content pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.post-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 40px 0;
+}
+
+.post-footer {
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-container {
+    padding: 40px 20px 80px;
+  }
+}
