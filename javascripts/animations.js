@@ -47,29 +47,3 @@ const statObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
-
-// Share button
-const shareBtn = document.getElementById('shareBtn');
-if (shareBtn) {
-  shareBtn.addEventListener('click', async () => {
-    const shareData = {
-      title: 'Suraj Van Verma — Backend Engineer & AI Builder',
-      text: 'Check out Suraj\'s portfolio — backend systems, AI tooling, McGill MS CS.',
-      url: 'https://bythebug.github.io'
-    };
-
-    try {
-      if (navigator.share) {
-        // Native share sheet on mobile
-        await navigator.share(shareData);
-      } else {
-        // Fallback: copy to clipboard on desktop
-        await navigator.clipboard.writeText(shareData.url);
-        shareBtn.classList.add('copied');
-        setTimeout(() => shareBtn.classList.remove('copied'), 2000);
-      }
-    } catch (err) {
-      // User cancelled or error — do nothing
-    }
-  });
-}
