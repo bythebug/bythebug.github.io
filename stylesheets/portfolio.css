@@ -111,6 +111,53 @@ nav {
   background: var(--bg-hover);
 }
 
+.nav-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-soft);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  position: relative;
+}
+
+.nav-share:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  background: var(--bg-hover);
+}
+
+.nav-share svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.share-copied {
+  display: none;
+  color: var(--green);
+}
+
+.nav-share.copied .share-label {
+  display: none;
+}
+
+.nav-share.copied .share-copied {
+  display: inline;
+}
+
+.nav-share.copied {
+  border-color: rgba(34, 197, 94, 0.4);
+  color: var(--green);
+}
+
 /* ============================================================
    LAYOUT
    ============================================================ */
@@ -754,6 +801,114 @@ footer {
 }
 
 /* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+/* Hero entrance — staggered fade up on load */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-badge {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.1s;
+}
+
+.hero h1 {
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.2s;
+}
+
+.hero-sub {
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.35s;
+}
+
+.hero-actions {
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.45s;
+}
+
+.hero-stats {
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.55s;
+}
+
+.hero-photo {
+  animation: fadeIn 0.8s ease both;
+  animation-delay: 0.3s;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Project cards stagger */
+.projects-grid .project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.15s;
+}
+
+.projects-grid.revealed .project-card:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.projects-grid.revealed .project-card:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s;  }
+.projects-grid.revealed .project-card:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.projects-grid.revealed .project-card:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.2s;  }
+.projects-grid.revealed .project-card:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.projects-grid.revealed .project-card:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.3s;  }
+
+/* Timeline items stagger */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline.revealed .timeline-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.timeline.revealed .timeline-item:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.timeline.revealed .timeline-item:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.25s; }
+
+/* Skill cards stagger */
+.skills-grid .skill-category {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s, background 0.15s;
+}
+
+.skills-grid.revealed .skill-category:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.skills-grid.revealed .skill-category:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s;  }
+.skills-grid.revealed .skill-category:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.skills-grid.revealed .skill-category:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.2s;  }
+.skills-grid.revealed .skill-category:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.skills-grid.revealed .skill-category:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.3s;  }
+
+/* ============================================================
    DIVIDER
    ============================================================ */
 
@@ -829,6 +984,14 @@ footer {
 
   .nav-links a:not(.nav-cta) {
     display: none;
+  }
+
+  .nav-share .share-label {
+    display: none;
+  }
+
+  .nav-share {
+    padding: 6px 10px;
   }
 
   .container {

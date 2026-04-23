@@ -56,6 +56,14 @@
       <a href="https://github.com/bythebug" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:suraj.verma@mail.mcgill.ca">Email</a>
       <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="nav-cta">Connect on LinkedIn →</a>
+      <button class="nav-share" id="shareBtn" title="Share this page" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span class="share-label">Share</span>
+        <span class="share-copied">Copied!</span>
+      </button>
     </div>
   </nav>
 
@@ -86,11 +94,11 @@
 
       <div class="hero-stats">
         <div class="stat-item">
-          <span class="stat-value">80%</span>
+          <span class="stat-value" data-target="80" data-suffix="%">80%</span>
           <span class="stat-label">doc lookup time cut at Plumfind</span>
         </div>
         <div class="stat-item">
-          <span class="stat-value">60%</span>
+          <span class="stat-value" data-target="60" data-suffix="%">60%</span>
           <span class="stat-label">API latency reduced under load</span>
         </div>
         <div class="stat-item">
@@ -98,7 +106,7 @@
           <span class="stat-label">MS Computer Science</span>
         </div>
         <div class="stat-item">
-          <span class="stat-value">2019</span>
+          <span class="stat-value" data-target="2019">2019</span>
           <span class="stat-label">writing code since</span>
         </div>
       </div>
@@ -110,13 +118,13 @@
   <!-- ============================================================ PROJECTS -->
   <section id="projects">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="section-label">Selected Work</p>
         <h2 class="section-title">Things I've Built</h2>
         <p class="section-desc">Personal projects built with production-grade thinking. Everything links to source code.</p>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid reveal">
 
         <!-- Project 1: Real-Time Log Processing -->
         <div class="project-card">
@@ -245,11 +253,11 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <div class="section-header">
+          <div class="section-header reveal">
             <p class="section-label">About</p>
             <h2 class="section-title">Who I Am</h2>
           </div>
-          <div class="about-text">
+          <div class="about-text reveal reveal-delay-1">
             <p>
               I'm a backend engineer and AI builder with a <strong>Master's in Computer Science from McGill University</strong>.
               My work lives at the intersection of distributed systems, AI tooling, and building things people actually use.
@@ -274,7 +282,7 @@
           </div>
         </div>
 
-        <div class="about-sidebar">
+        <div class="about-sidebar reveal reveal-delay-2">
           <div class="info-block">
             <div class="info-block-label">Currently</div>
             <div class="info-block-value">
@@ -316,13 +324,13 @@
   <!-- ============================================================ SKILLS -->
   <section id="skills" class="skills-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="section-label">Stack</p>
         <h2 class="section-title">What I Work With</h2>
         <p class="section-desc">Tools and technologies I reach for when building backend systems and AI-powered products.</p>
       </div>
 
-      <div class="skills-grid">
+      <div class="skills-grid reveal">
         <div class="skill-category">
           <div class="skill-category-name">Languages</div>
           <div class="skill-list">
@@ -388,12 +396,12 @@
   <!-- ============================================================ EXPERIENCE -->
   <section id="experience" class="experience-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="section-label">Experience</p>
         <h2 class="section-title">Where I've Been</h2>
       </div>
 
-      <div class="timeline">
+      <div class="timeline reveal">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">Jun 2025 — Mar 2026</div>
@@ -425,7 +433,7 @@
   <!-- ============================================================ CONTACT -->
   <section id="contact" class="contact-section">
     <div class="container">
-      <div class="contact-inner">
+      <div class="contact-inner reveal">
         <p class="section-label">Contact</p>
         <h2 class="contact-heading">Let's build something.</h2>
         <p class="contact-sub">
@@ -467,5 +475,6 @@
     </div>
   </footer>
 
+  <script src="/javascripts/animations.js"></script>
 </body>
 </html>
