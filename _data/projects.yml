@@ -1,0 +1,94 @@
+# ============================================================
+# Projects data file
+# To add a project, copy one block and fill in the fields.
+# Fields:
+#   name        — display name
+#   url         — GitHub repo link
+#   description — one-liner, keep it under 120 chars
+#   tags        — tech stack, list format
+#   category    — "AI & Backend" | "Mobile & Native" | "Just for Fun"
+# ============================================================
+
+- name: Log Processing System
+  url: https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System
+  description: Real-time distributed pipeline designed for 500k+ events/sec ingestion with low latency.
+  tags: [Python, Kafka, Redis, Docker]
+  category: AI & Backend
+
+- name: WhatsApp AI Assistant
+  url: https://github.com/bythebug/Vani-AI
+  description: Voice-first AI service on WhatsApp with RAG pipeline using FAISS for document-grounded responses.
+  tags: [Python, FastAPI, GPT-4, FAISS, Twilio]
+  category: AI & Backend
+
+- name: resumo
+  url: https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD
+  description: AI tool that tailors LaTeX resumes to job descriptions using Ollama (local) or Claude API.
+  tags: [Python, Ollama, Claude API, React]
+  category: AI & Backend
+
+- name: AI Image Detector
+  url: https://github.com/bythebug/AI-Image-Detector
+  description: Privacy-first browser tool to detect AI-generated images using C2PA/JUMBF provenance standards. No server, no data retention.
+  tags: [JavaScript, C2PA, EXIF/XMP]
+  category: AI & Backend
+
+- name: urltrim
+  url: https://github.com/bythebug/urltrim
+  description: Distributed URL shortener with custom aliases, click analytics, and async processing. p95 ~22ms at ~300 req/s.
+  tags: [Python, FastAPI, PostgreSQL, Redis, RabbitMQ]
+  category: AI & Backend
+
+- name: StockNet
+  url: https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer
+  description: S&P 500 stock correlation graph for portfolio diversification analysis with a full-stack dashboard.
+  tags: [Python, Django, React, PostgreSQL]
+  category: AI & Backend
+
+- name: Salary Predictor
+  url: https://github.com/bythebug/Salary-Prediction-Web-App
+  description: ML-powered salary prediction web app with 90% accuracy using Scikit-learn and Plotly Dash.
+  tags: [Python, Scikit-learn, Plotly Dash, AWS]
+  category: AI & Backend
+
+- name: Code Snippet
+  url: https://github.com/bythebug/Code-Snippet
+  description: Cloud-based app for storing and sharing code snippets — personal Pastebin alternative.
+  tags: [Python]
+  category: AI & Backend
+
+- name: MetroPass
+  url: https://github.com/bythebug/MetroPass-Travel-Card-App
+  description: Privacy-centric transit payment app with contactless payments, RSA encryption, and GDPR/PIPEDA compliance.
+  tags: [React Native, Flask, Firebase, RSA]
+  category: Mobile & Native
+
+- name: PicSort
+  url: https://github.com/bythebug/PicSort-iOS-App
+  description: iOS app to clean your photo gallery with Tinder-style swipe gestures.
+  tags: [Swift, SwiftUI]
+  category: Mobile & Native
+
+- name: LeetCode Streak Widget
+  url: https://github.com/bythebug/LeetCode-Streak-Widget
+  description: Native macOS widget showing LeetCode submission progress as a 7×7 calendar heatmap.
+  tags: [Swift, macOS]
+  category: Mobile & Native
+
+- name: Block Master
+  url: https://github.com/bythebug/Block-Master-System-Level-Website-Blocker
+  description: macOS system-level website blocker using hosts file manipulation and pfctl packet filtering.
+  tags: [Python, macOS, pfctl]
+  category: Mobile & Native
+
+- name: RPG Fighter
+  url: https://github.com/bythebug/RPG-Fighter-PyGame
+  description: 2D RPG game with combat mechanics built in Pygame.
+  tags: [Python, Pygame]
+  category: Just for Fun
+
+- name: scrappy
+  url: https://github.com/bythebug/scrappy
+  description: Script to extract email addresses from LinkedIn post comments.
+  tags: [Python]
+  category: Just for Fun

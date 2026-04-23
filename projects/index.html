@@ -1,3 +1,6 @@
+---
+title: Projects
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -56,7 +59,6 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 4px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -70,8 +72,6 @@
       border-bottom: 1px solid var(--border-subtle);
       text-decoration: none;
       color: inherit;
-      transition: background 0.1s;
-      border-radius: 6px;
     }
 
     .project-row:last-child {
@@ -154,165 +154,25 @@
         <p>Everything I've built — backend systems, AI tools, mobile apps, and side experiments.</p>
       </div>
 
-      <!-- AI & Backend -->
+      {% assign grouped = site.data.projects | group_by: "category" %}
+      {% for group in grouped %}
       <div class="project-group">
-        <div class="project-group-label">AI & Backend</div>
+        <div class="project-group-label">{{ group.name }}</div>
 
-        <a href="https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">Log Processing System <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Real-time distributed pipeline designed for 500k+ events/sec ingestion with low latency.</span>
+        {% for project in group.items %}
+        <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-row">
+          <span class="project-row-name">{{ project.name }} <span class="arrow">↗</span></span>
+          <span class="project-row-desc">{{ project.description }}</span>
           <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Docker</span>
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
           </div>
         </a>
-
-        <a href="https://github.com/bythebug/Vani-AI" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">WhatsApp AI Assistant <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Voice-first AI service on WhatsApp with RAG pipeline using FAISS for document-grounded responses.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">GPT-4</span>
-            <span class="tag">FAISS</span>
-            <span class="tag">Twilio</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">resumo <span class="arrow">↗</span></span>
-          <span class="project-row-desc">AI tool that tailors LaTeX resumes to job descriptions using Ollama (local) or Claude API.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Ollama</span>
-            <span class="tag">Claude API</span>
-            <span class="tag">React</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/AI-Image-Detector" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">AI Image Detector <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Privacy-first browser tool to detect AI-generated images using C2PA/JUMBF provenance standards. No server, no data retention.</span>
-          <div class="project-row-tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">C2PA</span>
-            <span class="tag">EXIF/XMP</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/urltrim" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">urltrim <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Distributed URL shortener with custom aliases, click analytics, and async processing. p95 ~22ms at ~300 req/s.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Redis</span>
-            <span class="tag">RabbitMQ</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">StockNet <span class="arrow">↗</span></span>
-          <span class="project-row-desc">S&P 500 stock correlation graph for portfolio diversification analysis with a full-stack dashboard.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Django</span>
-            <span class="tag">React</span>
-            <span class="tag">PostgreSQL</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/Salary-Prediction-Web-App" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">Salary Predictor <span class="arrow">↗</span></span>
-          <span class="project-row-desc">ML-powered salary prediction web app with 90% accuracy using Scikit-learn and Plotly Dash.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">Plotly Dash</span>
-            <span class="tag">AWS</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/Code-Snippet" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">Code Snippet <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Cloud-based app for storing and sharing code snippets — personal Pastebin alternative.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-          </div>
-        </a>
+        {% endfor %}
 
       </div>
-
-      <!-- Mobile & Native -->
-      <div class="project-group">
-        <div class="project-group-label">Mobile & Native</div>
-
-        <a href="https://github.com/bythebug/MetroPass-Travel-Card-App" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">MetroPass <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Privacy-centric transit payment app with contactless payments, RSA encryption, and GDPR/PIPEDA compliance.</span>
-          <div class="project-row-tags">
-            <span class="tag">React Native</span>
-            <span class="tag">Flask</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">RSA</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/PicSort-iOS-App" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">PicSort <span class="arrow">↗</span></span>
-          <span class="project-row-desc">iOS app to clean your photo gallery with Tinder-style swipe gestures.</span>
-          <div class="project-row-tags">
-            <span class="tag">Swift</span>
-            <span class="tag">SwiftUI</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/LeetCode-Streak-Widget" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">LeetCode Streak Widget <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Native macOS widget showing LeetCode submission progress as a 7×7 calendar heatmap.</span>
-          <div class="project-row-tags">
-            <span class="tag">Swift</span>
-            <span class="tag">macOS</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/Block-Master-System-Level-Website-Blocker" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">Block Master <span class="arrow">↗</span></span>
-          <span class="project-row-desc">macOS system-level website blocker using hosts file manipulation and pfctl packet filtering.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">macOS</span>
-            <span class="tag">pfctl</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- Just for Fun -->
-      <div class="project-group">
-        <div class="project-group-label">Just for Fun</div>
-
-        <a href="https://github.com/bythebug/RPG-Fighter-PyGame" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">RPG Fighter <span class="arrow">↗</span></span>
-          <span class="project-row-desc">2D RPG game with combat mechanics built in Pygame.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pygame</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bythebug/scrappy" target="_blank" rel="noopener" class="project-row">
-          <span class="project-row-name">scrappy <span class="arrow">↗</span></span>
-          <span class="project-row-desc">Script to extract email addresses from LinkedIn post comments.</span>
-          <div class="project-row-tags">
-            <span class="tag">Python</span>
-          </div>
-        </a>
-
-      </div>
+      {% endfor %}
 
     </div>
   </main>
