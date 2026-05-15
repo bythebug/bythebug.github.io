@@ -78,6 +78,18 @@ title: Projects
       border-bottom: none;
     }
 
+    .project-row {
+      transition: background 0.15s, padding-left 0.15s;
+      border-radius: 6px;
+      padding-left: 8px;
+      margin-left: -8px;
+    }
+
+    .project-row:hover {
+      background: var(--bg-hover);
+      padding-left: 12px;
+    }
+
     .project-row:hover .project-row-name {
       color: var(--accent);
     }
@@ -136,6 +148,9 @@ title: Projects
 </head>
 <body>
 
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
   <nav>
     <a href="/" class="nav-name">Suraj Van Verma</a>
     <div class="nav-links">
@@ -187,5 +202,6 @@ title: Projects
     </div>
   </footer>
 
+  <script src="/javascripts/animations.js"></script>
 </body>
 </html>

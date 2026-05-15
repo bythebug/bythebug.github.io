@@ -6,16 +6,28 @@
 #   url         — GitHub repo link
 #   description — one-liner, keep it under 120 chars
 #   tags        — tech stack, list format
-#   category    — "AI & Backend" | "Mobile & Native" | "Just for Fun"
+#   category    — "AI & Backend" | "Tools & Utilities" | "Mobile & Native" | "Just for Fun"
 # ============================================================
+
+- name: context-os
+  url: https://github.com/bythebug/context-os
+  description: Model-agnostic memory infrastructure for LLM apps. BM25 + pgvector + RRF hybrid search. Python & TypeScript SDKs. Deployed on Fly.io.
+  tags: [Python, RAG, pgvector, Redis, Fly.io]
+  category: AI & Backend
 
 - name: Log Processing System
   url: https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System
-  description: Real-time distributed pipeline designed for 500k+ events/sec ingestion with low latency.
+  description: Real-time distributed pipeline handling 500k+ events/sec with 40% latency reduction via Redis stream processing.
   tags: [Python, Kafka, Redis, Docker]
   category: AI & Backend
 
-- name: WhatsApp AI Assistant
+- name: urltrim
+  url: https://github.com/bythebug/urltrim
+  description: URL shortener with custom aliases, click analytics, rate limiting, and async job queue. ~3,000 req/s throughput.
+  tags: [Python, FastAPI, PostgreSQL, Redis, RabbitMQ]
+  category: AI & Backend
+
+- name: WhatsApp AI Assistant (Vani)
   url: https://github.com/bythebug/Vani-AI
   description: Voice-first AI service on WhatsApp with RAG pipeline using FAISS for document-grounded responses.
   tags: [Python, FastAPI, GPT-4, FAISS, Twilio]
@@ -24,38 +36,44 @@
 - name: resumo
   url: https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD
   description: AI tool that tailors LaTeX resumes to job descriptions using Ollama (local) or Claude API.
-  tags: [Python, Ollama, Claude API, React]
+  tags: [Python, Ollama, Claude API]
   category: AI & Backend
 
-- name: AI Image Detector
-  url: https://github.com/bythebug/AI-Image-Detector
-  description: Privacy-first browser tool to detect AI-generated images using C2PA/JUMBF provenance standards. No server, no data retention.
-  tags: [JavaScript, C2PA, EXIF/XMP]
-  category: AI & Backend
-
-- name: urltrim
-  url: https://github.com/bythebug/urltrim
-  description: Distributed URL shortener with custom aliases, click analytics, and async processing. p95 ~22ms at ~300 req/s.
-  tags: [Python, FastAPI, PostgreSQL, Redis, RabbitMQ]
+- name: Salary Predictor
+  url: https://github.com/bythebug/Salary-Prediction-Web-App
+  description: ML-powered salary prediction web app with 90%+ R² accuracy using Scikit-learn and Plotly Dash.
+  tags: [Python, Scikit-learn, Plotly Dash, AWS Lambda]
   category: AI & Backend
 
 - name: StockNet
   url: https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer
   description: S&P 500 stock correlation graph for portfolio diversification analysis with a full-stack dashboard.
-  tags: [Python, Django, React, PostgreSQL]
+  tags: [Python, Django, Network Science, PostgreSQL]
   category: AI & Backend
 
-- name: Salary Predictor
-  url: https://github.com/bythebug/Salary-Prediction-Web-App
-  description: ML-powered salary prediction web app with 90% accuracy using Scikit-learn and Plotly Dash.
-  tags: [Python, Scikit-learn, Plotly Dash, AWS]
-  category: AI & Backend
+- name: lld-viz
+  url: https://github.com/bythebug/lld-viz
+  description: Live Python-to-UML class diagram visualizer for LLD interview prep. Type Python, see the diagram update in real time.
+  tags: [JavaScript, UML, LLD]
+  category: Tools & Utilities
+
+- name: gradual-dsa
+  url: https://github.com/bythebug/gradual-dsa
+  description: 426 LeetCode problems ordered by learning progression, not arbitrary difficulty labels.
+  tags: [HTML, DSA, LeetCode]
+  category: Tools & Utilities
+
+- name: AI Image Detector
+  url: https://github.com/bythebug/AI-Image-Detector
+  description: Privacy-first browser tool to detect AI-generated images using C2PA/JUMBF provenance standards. No server, no data retention.
+  tags: [JavaScript, C2PA, EXIF/XMP]
+  category: Tools & Utilities
 
 - name: Code Snippet
   url: https://github.com/bythebug/Code-Snippet
   description: Cloud-based app for storing and sharing code snippets — personal Pastebin alternative.
   tags: [Python]
-  category: AI & Backend
+  category: Tools & Utilities
 
 - name: MetroPass
   url: https://github.com/bythebug/MetroPass-Travel-Card-App
