@@ -1147,6 +1147,7 @@ footer {
 .projects-grid.revealed .project-card:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.2s;  }
 .projects-grid.revealed .project-card:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.25s; }
 .projects-grid.revealed .project-card:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.3s;  }
+.projects-grid.revealed .project-card:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.35s; }
 
 /* Timeline stagger */
 .timeline.revealed .timeline-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
