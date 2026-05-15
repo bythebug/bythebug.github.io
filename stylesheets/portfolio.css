@@ -324,14 +324,14 @@ section {
   font-weight: 500;
   padding: 12px 20px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
   transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .btn-ghost:hover {
   color: var(--text);
   background: var(--bg-hover);
-  border-color: var(--border);
+  border-color: var(--text-muted);
 }
 
 .btn-outline {
