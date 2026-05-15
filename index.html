@@ -9,14 +9,12 @@
   <meta name="description" content="Suraj Van Verma — Backend engineer and AI builder. I build distributed systems, ship AI tools, and turn ideas into products. MS Computer Science, McGill University." />
   <meta name="author" content="Suraj Van Verma" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Suraj Van Verma — Backend Engineer & AI Builder" />
   <meta property="og:description" content="Backend engineer and AI builder. I build distributed systems, ship AI tools, and turn ideas into products. MS CS, McGill University." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bythebug.github.io/" />
   <meta property="og:image" content="https://bythebug.github.io/assets/logo.png" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Suraj Van Verma — Backend Engineer & AI Builder" />
   <meta name="twitter:description" content="Backend engineer and AI builder. Distributed systems, AI tools, shipped products." />
@@ -25,7 +23,6 @@
   <link rel="canonical" href="https://bythebug.github.io/" />
   <link rel="icon" type="image/jpeg" href="/assets/photo.jpg">
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +48,7 @@
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- ============================================================ NAV -->
+  <!-- NAV -->
   <nav>
     <span class="nav-name">Suraj Van Verma</span>
     <div class="nav-links">
@@ -64,7 +61,7 @@
     </div>
   </nav>
 
-  <!-- ============================================================ HERO -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
@@ -77,24 +74,29 @@
           </h1>
 
           <p class="hero-sub">
-            Backend engineer specializing in scalable systems and AI tooling. MS Computer Science, McGill University. Writing about engineering for 28K+ on LinkedIn.
+            I build distributed systems and AI-powered tools. McGill MS CS. Writing about engineering for <a href="https://linkedin.com/in/bythebug" target="_blank" rel="noopener" class="hero-sub-link">28K+ on LinkedIn</a>.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn-primary">View My Work →</a>
-            <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="btn-secondary">Connect on LinkedIn</a>
+            <a href="/assets/resume.pdf" download class="btn-primary">Download Resume ↓</a>
+            <a href="#projects" class="btn-secondary">View My Work →</a>
+            <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
           </div>
         </div>
 
         <img src="/assets/photo.jpg" alt="Suraj Van Verma" class="hero-photo">
       </div>
 
+      <div class="hero-scroll-cue">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
-  <!-- ============================================================ PROJECTS -->
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
@@ -105,33 +107,16 @@
 
       <div class="projects-grid reveal">
 
-        <!-- Project 1: Real-Time Log Processing -->
-        <div class="project-card">
-          <a href="https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System" target="_blank" rel="noopener" class="project-card-link" aria-label="View Real-Time Distributed Log Processing System on GitHub"></a>
-          <div class="project-header">
-            <span class="project-icon">⚡</span>
-            <span class="project-arrow">↗</span>
-          </div>
-          <h3 class="project-title">Real-Time Log Processing System</h3>
-          <p class="project-desc">Distributed event pipeline designed for high-throughput log ingestion and processing with sub-10ms latency at scale.</p>
-          <div class="project-highlight">Designed for 500k+ events/sec · sub-10ms target latency</div>
-          <div class="project-tags">
-            <span class="tag tag-accent">Python</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Docker</span>
-          </div>
-        </div>
-
-        <!-- Project 2: context-os -->
-        <div class="project-card">
+        <!-- Featured: context-os -->
+        <div class="project-card project-featured">
           <a href="https://github.com/bythebug/context-os" target="_blank" rel="noopener" class="project-card-link" aria-label="View context-os on GitHub"></a>
           <div class="project-header">
             <span class="project-icon">🧠</span>
+            <div class="project-featured-badge">Featured</div>
             <span class="project-arrow">↗</span>
           </div>
           <h3 class="project-title">context-os</h3>
-          <p class="project-desc">Model-agnostic memory infrastructure for LLM applications. Any AI client writes memory after a session, queries before the next — BM25 + pgvector + RRF hybrid search. Python and TypeScript SDKs. Deployed on Fly.io.</p>
+          <p class="project-desc">Model-agnostic memory infrastructure for LLM applications. Any AI client writes memory after a session, queries before the next — BM25 + pgvector + RRF hybrid search. Ships with Python and TypeScript SDKs. Deployed on Fly.io.</p>
           <div class="project-highlight">BM25 + pgvector + RRF · Python & TS SDKs · Fly.io</div>
           <div class="project-tags">
             <span class="tag tag-accent">Python</span>
@@ -142,15 +127,33 @@
           </div>
         </div>
 
-        <!-- Project 3: urltrim -->
+        <!-- Log Processing -->
         <div class="project-card">
-          <a href="https://github.com/bythebug/urltrim" target="_blank" rel="noopener" class="project-card-link" aria-label="View urltrim on GitHub"></a>
+          <a href="https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System" target="_blank" rel="noopener" class="project-card-link"></a>
+          <div class="project-header">
+            <span class="project-icon">⚡</span>
+            <span class="project-arrow">↗</span>
+          </div>
+          <h3 class="project-title">Real-Time Log Processing</h3>
+          <p class="project-desc">Distributed event pipeline for high-throughput log ingestion. 40% latency reduction via Redis stream processing.</p>
+          <div class="project-highlight">500K+ events/sec · 40% latency reduction</div>
+          <div class="project-tags">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+
+        <!-- urltrim -->
+        <div class="project-card">
+          <a href="https://github.com/bythebug/urltrim" target="_blank" rel="noopener" class="project-card-link"></a>
           <div class="project-header">
             <span class="project-icon">🔗</span>
             <span class="project-arrow">↗</span>
           </div>
           <h3 class="project-title">urltrim</h3>
-          <p class="project-desc">Personal URL shortener with custom aliases, click analytics, rate limiting, and async job processing via message queue.</p>
+          <p class="project-desc">URL shortener with custom aliases, click analytics, rate limiting, and async job processing via message queue.</p>
           <div class="project-highlight">~3,000 req/s throughput</div>
           <div class="project-tags">
             <span class="tag tag-accent">Python</span>
@@ -161,35 +164,34 @@
           </div>
         </div>
 
-        <!-- Project 4: Vani AI -->
+        <!-- Vani AI -->
         <div class="project-card">
-          <a href="https://github.com/bythebug/Vani-AI" target="_blank" rel="noopener" class="project-card-link" aria-label="View Vani AI on GitHub"></a>
+          <a href="https://github.com/bythebug/Vani-AI" target="_blank" rel="noopener" class="project-card-link"></a>
           <div class="project-header">
             <span class="project-icon">🤖</span>
             <span class="project-arrow">↗</span>
           </div>
-          <h3 class="project-title">WhatsApp Voice-First AI Assistant</h3>
-          <p class="project-desc">AI service with a RAG pipeline using FAISS for knowledge retrieval. Processes documents asynchronously and routes queries through GPT-4 for accurate, grounded responses.</p>
+          <h3 class="project-title">WhatsApp AI Assistant</h3>
+          <p class="project-desc">Voice-first AI service with a RAG pipeline using FAISS for document-grounded responses via GPT-4.</p>
           <div class="project-highlight">RAG · FAISS · Async document processing</div>
           <div class="project-tags">
             <span class="tag tag-accent">Python</span>
             <span class="tag">FastAPI</span>
             <span class="tag">GPT-4</span>
             <span class="tag">FAISS</span>
-            <span class="tag">Twilio</span>
           </div>
         </div>
 
-        <!-- Project 5: resumo -->
+        <!-- resumo -->
         <div class="project-card">
-          <a href="https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD" target="_blank" rel="noopener" class="project-card-link" aria-label="View resumo on GitHub"></a>
+          <a href="https://github.com/bythebug/resumo-Tailor-Latex-Resume-for-JD" target="_blank" rel="noopener" class="project-card-link"></a>
           <div class="project-header">
             <span class="project-icon">📄</span>
             <span class="project-arrow">↗</span>
           </div>
           <h3 class="project-title">resumo</h3>
-          <p class="project-desc">AI-powered tool that tailors LaTeX resumes to specific job descriptions. Supports local models via Ollama and cloud via Claude API.</p>
-          <div class="project-highlight">Ollama · Claude API · LaTeX parsing · JD matching</div>
+          <p class="project-desc">AI tool that tailors LaTeX resumes to job descriptions. Supports local models via Ollama and cloud via Claude API.</p>
+          <div class="project-highlight">Ollama · Claude API · LaTeX · JD matching</div>
           <div class="project-tags">
             <span class="tag tag-accent">Python</span>
             <span class="tag">Ollama</span>
@@ -198,15 +200,15 @@
           </div>
         </div>
 
-        <!-- Project 6: MetroPass -->
+        <!-- MetroPass -->
         <div class="project-card">
-          <a href="https://github.com/bythebug/MetroPass-Travel-Card-App" target="_blank" rel="noopener" class="project-card-link" aria-label="View MetroPass on GitHub"></a>
+          <a href="https://github.com/bythebug/MetroPass-Travel-Card-App" target="_blank" rel="noopener" class="project-card-link"></a>
           <div class="project-header">
             <span class="project-icon">🚇</span>
             <span class="project-arrow">↗</span>
           </div>
           <h3 class="project-title">MetroPass</h3>
-          <p class="project-desc">Privacy-centric transit payment app with contactless payments, RSA encryption, OAuth, and full GDPR/PIPEDA compliance.</p>
+          <p class="project-desc">Privacy-centric transit payment app with contactless payments, RSA encryption, and GDPR/PIPEDA compliance.</p>
           <div class="project-highlight">RSA encryption · OAuth · GDPR/PIPEDA compliant</div>
           <div class="project-tags">
             <span class="tag tag-accent">React Native</span>
@@ -218,17 +220,15 @@
 
       </div>
 
-      <div style="margin-top: 20px; text-align: center;">
-        <a href="/projects/" class="btn-secondary">
-          View all projects →
-        </a>
+      <div class="projects-footer reveal">
+        <a href="/projects/" class="btn-outline">View all projects →</a>
       </div>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
-  <!-- ============================================================ ABOUT -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="about-grid">
@@ -241,19 +241,11 @@
             <p>
               I'm a backend engineer with a <strong>Master's in Computer Science from McGill University</strong>.
               I build distributed systems and AI-powered tooling — the kind of work that runs at scale and holds up under pressure.
+              I think end-to-end: architecture, deployment, and what breaks at 2am.
             </p>
             <p>
-              I also write about backend engineering and tech for <strong>28K+ followers on LinkedIn</strong>.
-              That's not a side hobby — it's taught me how to explain complex systems clearly, which makes me a better engineer and collaborator.
-            </p>
-            <p>
-              I care about <strong>systems that scale, products that ship, and code that's worth reading</strong>.
-              When I pick up a problem, I think about it end-to-end — from architecture to deployment to what happens
-              when it breaks at 2am.
-            </p>
-            <p>
-              Outside of code, I read obsessively about technology and startups,
-              and think about how AI changes what it means to build software.
+              I also write about backend engineering for <strong>28K+ followers on LinkedIn</strong> — not a side hobby.
+              It's made me better at explaining complex systems clearly, which makes me a stronger collaborator on any team.
             </p>
             <a href="mailto:suraj.verma@mail.mcgill.ca" class="about-cta">
               Let's talk → suraj.verma@mail.mcgill.ca
@@ -264,9 +256,7 @@
         <div class="about-sidebar reveal reveal-delay-2">
           <div class="info-block">
             <div class="info-block-label">Currently</div>
-            <div class="info-block-value">
-              Open to remote Backend Engineering &amp; DevRel roles in Canada
-            </div>
+            <div class="info-block-value">Open to remote Backend Engineering &amp; DevRel roles in Canada</div>
           </div>
           <div class="info-block">
             <div class="info-block-label">Education</div>
@@ -277,14 +267,15 @@
           </div>
           <div class="info-block">
             <div class="info-block-label">Location</div>
-            <div class="info-block-value">
-              Montréal, QC — open to remote
-            </div>
+            <div class="info-block-value">Montréal, QC — open to remote</div>
           </div>
-          <div class="info-block">
+          <div class="info-block info-block-creator">
             <div class="info-block-label">Creator</div>
             <div class="info-block-value">
-              28K LinkedIn followers — writing about backend engineering, AI, and tech careers
+              <a href="https://linkedin.com/in/bythebug" target="_blank" rel="noopener" class="creator-link">
+                <span class="creator-count">28K</span> LinkedIn followers
+              </a>
+              <span class="info-block-sub">Writing about backend engineering, AI &amp; tech careers</span>
             </div>
           </div>
           <div class="info-block">
@@ -300,70 +291,54 @@
 
   <div class="section-divider"></div>
 
-  <!-- ============================================================ SKILLS -->
+  <!-- STACK -->
   <section id="skills" class="skills-section">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Stack</p>
         <h2 class="section-title">What I Work With</h2>
-        <p class="section-desc">Tools and technologies I reach for when building backend systems and AI-powered products.</p>
       </div>
-
-      <div class="skills-grid reveal">
-        <div class="skill-category">
-          <div class="skill-category-name">Languages</div>
-          <div class="skill-list">
-            <span class="skill-item">Python</span>
-            <span class="skill-item">TypeScript</span>
-            <span class="skill-item">JavaScript</span>
-            <span class="skill-item">Java</span>
-            <span class="skill-item">SQL · C++</span>
+      <div class="tech-grid reveal">
+        <div class="tech-group">
+          <div class="tech-group-label">Backend</div>
+          <div class="tech-badges">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">Spring Boot</span>
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">Java</span>
           </div>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-name">Frameworks</div>
-          <div class="skill-list">
-            <span class="skill-item">FastAPI</span>
-            <span class="skill-item">React</span>
-            <span class="skill-item">Django</span>
-            <span class="skill-item">Spring Boot</span>
-            <span class="skill-item">Flask · Node.js</span>
+        <div class="tech-group">
+          <div class="tech-group-label">Data & Messaging</div>
+          <div class="tech-badges">
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Redis</span>
+            <span class="tech-badge">Kafka</span>
+            <span class="tech-badge">RabbitMQ</span>
+            <span class="tech-badge">MongoDB</span>
           </div>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-name">Databases</div>
-          <div class="skill-list">
-            <span class="skill-item">PostgreSQL</span>
-            <span class="skill-item">Redis</span>
-            <span class="skill-item">MongoDB</span>
-            <span class="skill-item">FAISS (Vector DB)</span>
+        <div class="tech-group">
+          <div class="tech-group-label">AI / ML</div>
+          <div class="tech-badges">
+            <span class="tech-badge">RAG</span>
+            <span class="tech-badge">pgvector</span>
+            <span class="tech-badge">FAISS</span>
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">LangChain</span>
+            <span class="tech-badge">HuggingFace</span>
           </div>
         </div>
-        <div class="skill-category">
-          <div class="skill-category-name">Async & Infra</div>
-          <div class="skill-list">
-            <span class="skill-item">RabbitMQ · SQS</span>
-            <span class="skill-item">Apache Kafka</span>
-            <span class="skill-item">arq</span>
-            <span class="skill-item">Event-Driven Architecture</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="skill-category-name">AI / ML</div>
-          <div class="skill-list">
-            <span class="skill-item">LLMs (GPT-4, Claude)</span>
-            <span class="skill-item">RAG · FAISS</span>
-            <span class="skill-item">Ollama (local models)</span>
-            <span class="skill-item">Fine-Tuning · GenAI</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <div class="skill-category-name">Cloud & DevOps</div>
-          <div class="skill-list">
-            <span class="skill-item">AWS (Lambda, S3, SQS)</span>
-            <span class="skill-item">CloudWatch</span>
-            <span class="skill-item">Docker · Kubernetes</span>
-            <span class="skill-item">CI/CD</span>
+        <div class="tech-group">
+          <div class="tech-group-label">Cloud & DevOps</div>
+          <div class="tech-badges">
+            <span class="tech-badge">AWS</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Linux</span>
+            <span class="tech-badge">CI/CD</span>
+            <span class="tech-badge">Fly.io</span>
           </div>
         </div>
       </div>
@@ -372,65 +347,84 @@
 
   <div class="section-divider"></div>
 
-  <!-- ============================================================ EXPERIENCE -->
+  <!-- EXPERIENCE + EDUCATION -->
   <section id="experience" class="experience-section">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Experience</p>
+        <p class="section-label">Experience & Education</p>
         <h2 class="section-title">Where I've Been</h2>
       </div>
 
       <div class="timeline reveal">
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">Jun 2025 — Mar 2026</div>
-          <div class="timeline-role">Software Developer</div>
+          <div class="timeline-role">Software Engineer</div>
           <div class="timeline-org">Plumfind · Montreal, QC</div>
-          <div class="timeline-desc">Built backend microservices for a production GenAI platform automating knowledge worker workflows. FastAPI REST APIs and async data pipelines cut manual document lookup time by 80%. Redis caching + CloudWatch monitoring reduced average API latency by 60% under load. Async ingestion via AWS Lambda, S3, and SQS processed thousands of documents for downstream LLM services.</div>
+          <div class="timeline-desc">Built backend microservices for a production GenAI platform. NASA HLS satellite data pipeline processed ~10,000 files — cut runtime from 3 days to 2 hours. RAG chatbot over 1,000+ docs with FAISS, Streamlit, and pytest. Python, FastAPI, AWS Lambda, S3, Redis.</div>
         </div>
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">Sep 2023 — Jun 2025</div>
           <div class="timeline-role">Software Engineer · Graduate Thesis</div>
           <div class="timeline-org">McGill University · Montreal, QC</div>
-          <div class="timeline-desc">Built a Spring Boot 3-layer backend for a collaborative educational modeling tool. Real-time sync via WebSockets + CRDTs for 20+ concurrent users. JWT + RBAC + GDPR/FERPA compliance, LMS integration. Deployed across 2 languages.</div>
+          <div class="timeline-desc">Built a Spring Boot 3-layer backend for a collaborative educational modeling tool. Real-time sync via WebSockets + CRDTs for 20+ concurrent users. JWT + RBAC + GDPR/FERPA compliance. Deployed across 2 languages.</div>
         </div>
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">Aug 2022 — Nov 2022</div>
           <div class="timeline-role">Software Developer Intern</div>
           <div class="timeline-org">Mitacs · Edmonton, AB</div>
-          <div class="timeline-desc">Built a no-code chatbot builder with RBAC and a real-time chatroom. Delivered end-to-end as the sole developer on the project.</div>
+          <div class="timeline-desc">Built a no-code chatbot builder with RBAC and a real-time chatroom as the sole developer on the project.</div>
         </div>
+
+        <div class="timeline-item timeline-item-edu">
+          <div class="timeline-dot timeline-dot-edu"></div>
+          <div class="timeline-date">Sep 2023 — Jun 2025</div>
+          <div class="timeline-role">MS Computer Science</div>
+          <div class="timeline-org">McGill University · Montreal, QC</div>
+          <div class="timeline-desc">Thesis: Modular Backend for Collaborative Educational Modeling Tool. Courses: Applied ML, NLP, Reinforcement Learning.</div>
+        </div>
+
+        <div class="timeline-item timeline-item-edu">
+          <div class="timeline-dot timeline-dot-edu"></div>
+          <div class="timeline-date">Aug 2019 — Jun 2023</div>
+          <div class="timeline-role">B.Tech Computer Science</div>
+          <div class="timeline-org">VelTech University · Chennai, India</div>
+          <div class="timeline-desc">GDSC Lead — 2,000+ members, 5+ events. Courses: DSA, Operating Systems, DBMS.</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-
   <div class="section-divider"></div>
 
-  <!-- ============================================================ CONTACT -->
+  <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-inner reveal">
         <p class="section-label">Contact</p>
         <h2 class="contact-heading">Let's build something.</h2>
         <p class="contact-sub">
-          Open to remote backend engineering and DevRel roles in Canada.
-          Also happy to talk distributed systems, AI tooling, or content creation.
+          Open to remote backend engineering and DevRel roles in Canada.<br>
+          Happy to talk distributed systems, AI tooling, or content creation.
         </p>
         <div class="contact-links">
-          <a href="mailto:suraj.verma@mail.mcgill.ca" class="contact-link">
+          <a href="mailto:suraj.verma@mail.mcgill.ca" class="contact-link contact-link-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
             </svg>
             Email Me
           </a>
-          <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" class="contact-link contact-link-primary">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
             </svg>
-            LinkedIn
+            LinkedIn · 28K
           </a>
           <a href="https://github.com/bythebug" target="_blank" rel="noopener" class="contact-link">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -438,12 +432,18 @@
             </svg>
             GitHub
           </a>
+          <a href="/assets/resume.pdf" download class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Resume PDF
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <span class="footer-name">Suraj Van Verma</span>
     <span class="footer-copy">@bythebug · bythebug.github.io</span>
