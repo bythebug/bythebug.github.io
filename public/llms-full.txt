@@ -1,0 +1,151 @@
+# Suraj Van Verma — bythebug (Full Content)
+
+> Backend engineer, AIML specialist, and content creator. I build ML systems and LLM infrastructure by day and make software engineering videos for YouTube under the bythebug brand.
+
+---
+
+## About
+
+Suraj Van Verma is a software engineer specializing in backend systems, machine learning, and AI/LLM tooling. He runs the bythebug brand — a YouTube channel, Instagram, and Spotify presence focused on software engineering and building in public.
+
+Skills: Python, Go, distributed systems, LLM infrastructure, ML pipelines, Redis, Kafka, AWS, iOS development.
+
+Contact: https://calendly.com/bythebug | https://github.com/bythebug
+
+---
+
+## Blog Posts
+
+### Why I built keeto — AI observability shouldn't be hard
+URL: https://bythebug.github.io/blog/why-i-built-keeto/
+Date: 2026-08-10
+
+Every LLM app I built had the same problem. I'd ship something, users would hit it, and I'd have no idea what was actually happening inside. Which prompts were failing? Which models were slow? What did the token usage look like over time?
+
+The existing tools were either too heavy, too opinionated, or required you to rewrite your entire stack around them. I didn't want that. I wanted something I could drop into any Python project in one line.
+
+That's keeto.
+
+**What it does**
+
+Keeto wraps your LLM calls and logs everything — latency, token counts, model used, prompt, response — without you having to change how you write code. Zero config. Just install and import.
+
+```python
+import keeto
+# That's it. Your LLM calls are now observed.
+```
+
+Under the hood it uses monkey-patching to intercept calls to OpenAI, Anthropic, and other providers. The data goes to a local SQLite database by default, or you can point it at any backend.
+
+**The design principle**
+
+The thing I kept coming back to while building this: observability tooling has a nasty habit of becoming the thing you have to maintain instead of the thing that helps you. I wanted keeto to stay invisible until you needed it.
+
+So there are no dashboards to set up, no agents to run, no config files to write. You get a simple CLI to query what happened, and a Python API if you want to build something on top.
+
+**What I learned**
+
+Building this taught me more about how Python's import system works than I expected. Monkey-patching at the right layer without breaking the original API surface is genuinely tricky — especially when providers update their SDKs.
+
+Install: pip install keeto
+
+---
+
+### From backend engineer to content creator: what I learned in year one
+URL: https://bythebug.github.io/blog/backend-to-content-creator/
+Date: 2026-07-22
+
+A year ago I uploaded my first YouTube video. It was rough — bad audio, over-edited, trying too hard to be entertaining. I almost didn't post it.
+
+Now I have a channel, a brand (bythebug), and a different relationship with my own work.
+
+**You already know more than you think**
+
+The biggest mental block for engineers who want to make content is "who am I to teach this?" But the bar isn't being the world's foremost expert. The bar is knowing more than the person watching — and being able to explain it clearly. I can explain Kafka consumer groups in a way that clicks for someone who's been staring at the docs for two hours. That's enough.
+
+**The camera makes you a better engineer**
+
+Making content forces you to actually understand what you're explaining. I've caught bugs in my own thinking while writing a script. Teaching is the fastest path to deep understanding. The camera is just an accountability mechanism.
+
+**Consistency beats quality early on**
+
+My first 10 videos were not good. But they existed, and that mattered. Algorithms reward regularity. You learn faster by shipping imperfect things than by polishing things that never go out. The video I was least confident about did the best.
+
+**The dual identity is the brand**
+
+Being both a practicing engineer and a content creator isn't a conflict — it's the point. The videos are better because I'm actually building things. The engineering is better because I have to explain it.
+
+---
+
+### How I structure every LLM project before writing a line of code
+URL: https://bythebug.github.io/blog/how-i-structure-llm-projects/
+Date: 2026-06-15
+
+LLM projects have a particular failure mode: you build fast, ship something, and then realize the architecture doesn't support what you actually need. Streaming, caching, fallbacks, observability — all the things you didn't think about because the demo worked fine.
+
+**1. Define the latency budget**
+
+Is this user-facing and real-time, or async and batch? Real-time means you need streaming and probably a smaller/faster model. Batch means you can use the most capable model and parallelize. Get this wrong and you'll rewrite the whole thing.
+
+**2. Map the prompt surface**
+
+How many distinct prompts does the system have? Write them out. One prompt = simple. Ten prompts with shared context = you need a prompt management layer.
+
+**3. Decide on context strategy upfront**
+
+Where does context come from? User history, a vector DB, a tool call, a fixed system prompt? This affects your data model more than anything else.
+
+**4. Plan for failure**
+
+What happens when the model returns garbage? What happens when it hallucinates a function call that doesn't exist? LLMs are probabilistic — plan for the 5% case from the start. Always write a validate_output function before the main generation call.
+
+**5. Add observability before you need it**
+
+By the time you realize you need observability, you've already shipped and you're debugging in production. Add it at the start. Log prompts, responses, latencies, token counts. (This is why I built keeto.)
+
+---
+
+## Projects
+
+### AI / ML
+- **LLM Studio** (https://github.com/bythebug/llm-studio): Full-stack platform for fine-tuning LLMs with a job queue, remote GPU dispatch, and experiment tracking.
+- **ML Forge** (https://github.com/bythebug/ml-forge): Feature engineering pipeline with 12 transformation techniques across 5 ML models.
+- **Smart Suggest** (https://github.com/bythebug/smart-suggest): Recommendation engine with a built-in A/B testing framework and KPI tracking.
+- **Market Graph** (https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer): Models the S&P 500 as a network graph using PageRank to identify market-driving stocks vs. followers.
+- **Data Lens** (https://github.com/bythebug/data-lens): Self-serve analytics platform with full-text search, filtering, aggregation, and time-series queries over a REST API.
+- **Vani AI** (https://github.com/bythebug/Vani-AI): LLM chatbot infrastructure for WhatsApp — multi-model routing over a single messaging layer.
+- **Salary Prediction** (https://github.com/bythebug/Salary-Prediction-Web-App): ML-powered salary predictor with interactive visualizations. 90% accuracy, deployed on AWS.
+- **AI Image Detector** (https://aiimagedetector.netlify.app/): Detects AI-generated images by reading embedded content provenance metadata — fully browser-side.
+
+### Apps & Tools
+- **iDoList** (https://github.com/bythebug/idolist): Life-management app to organize goals, tasks, and habits into one executable dashboard.
+- **UML Canvas** (https://github.com/bythebug/lld-viz): Type Python, get a live UML class diagram. Zero setup, runs entirely in the browser.
+- **Claude Monitor** (https://github.com/bythebug/claude-monitor): macOS menu bar app showing Claude Code usage percentage and session reset time.
+- **LeetCode Streak Widget** (https://github.com/bythebug/LeetCode-Streak-Widget): Native macOS widget showing a 7x7 LeetCode submission calendar.
+- **PicSort** (https://github.com/bythebug/PicSort-iOS-App): iOS gallery cleaner — swipe right to keep, left to delete.
+- **MetroPass** (https://github.com/bythebug/MetroPass-Travel-Card-App): Contactless transit payments with RSA-encrypted card data. Keys never leave the device.
+- **LeadScrape** (https://github.com/bythebug/scrappy): Automatically extracts email addresses from LinkedIn post comments.
+
+### Backend / Infrastructure
+- **Task Flow** (https://github.com/bythebug/task-flow): Task management API with role-based permissions, JWT auth, and Redis-backed queuing.
+- **PubSub Hub** (https://github.com/bythebug/realtime-hub): Redis pub/sub fan-out with circuit breakers that isolate slow consumers without stalling upstream producers.
+- **Distributed Log Processor** (https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System): Processes 500K+ events/second — Kafka ingest with consumer groups and Redis-based deduplication.
+- **URLtrim** (https://github.com/bythebug/urltrim): Personal URL shortener with custom aliases, click analytics, and built-in rate limiting.
+
+---
+
+## Creator Content
+
+- YouTube (@bythebug): https://youtube.com/@bythebug — Software engineering tutorials, LLM deep dives, building in public.
+- Instagram (@suraj.builds): https://instagram.com/suraj.builds — Short-form content and behind-the-scenes.
+- Spotify: https://open.spotify.com/artist/4McD3qf6GvaBvpX7J39B4o
+- LinkedIn: https://linkedin.com/in/bythebug
+
+---
+
+## Links
+
+- Website: https://bythebug.github.io
+- llms.txt: https://bythebug.github.io/llms.txt
+- Sitemap: https://bythebug.github.io/sitemap-index.xml
+- Schedule a call: https://calendly.com/bythebug

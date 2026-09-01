@@ -1,0 +1,45 @@
+# Suraj Van Verma — bythebug
+
+> Backend engineer, AIML specialist, and content creator. I build ML systems and LLM infrastructure by day and make software engineering videos for YouTube under the bythebug brand.
+
+## About
+
+Suraj Van Verma is a software engineer specializing in backend systems, machine learning, and AI/LLM tooling. He runs the bythebug brand — a YouTube channel, Instagram, and Spotify presence focused on software engineering and building in public. Based in India.
+
+Skills: Python, Go, distributed systems, LLM infrastructure, ML pipelines, Redis, Kafka, AWS, iOS development.
+
+## Projects
+
+- [LLM Studio](https://github.com/bythebug/llm-studio): Full-stack platform for fine-tuning LLMs with a job queue, remote GPU dispatch, and experiment tracking.
+- [ML Forge](https://github.com/bythebug/ml-forge): Feature engineering pipeline with 12 transformation techniques across 5 ML models.
+- [Smart Suggest](https://github.com/bythebug/smart-suggest): Recommendation engine with a built-in A/B testing framework and KPI tracking.
+- [Market Graph](https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer): Models the S&P 500 as a network graph using PageRank to identify market-driving stocks.
+- [Data Lens](https://github.com/bythebug/data-lens): Self-serve analytics platform with full-text search, filtering, aggregation, and time-series queries.
+- [Vani AI](https://github.com/bythebug/Vani-AI): LLM chatbot infrastructure for WhatsApp — multi-model routing over a single messaging layer.
+- [Salary Prediction](https://github.com/bythebug/Salary-Prediction-Web-App): ML-powered salary predictor with interactive visualizations. 90% accuracy, deployed on AWS.
+- [AI Image Detector](https://aiimagedetector.netlify.app/): Detects AI-generated images by reading embedded content provenance metadata — fully browser-side.
+- [iDoList](https://github.com/bythebug/idolist): Life-management app to organize goals, tasks, and habits into one executable dashboard.
+- [UML Canvas](https://github.com/bythebug/lld-viz): Type Python, get a live UML class diagram. Zero setup, runs entirely in the browser.
+- [Claude Monitor](https://github.com/bythebug/claude-monitor): macOS menu bar app showing Claude Code usage percentage and session reset time.
+- [PubSub Hub](https://github.com/bythebug/realtime-hub): Redis pub/sub fan-out with circuit breakers that isolate slow consumers.
+- [Distributed Log Processor](https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System): Processes 500K+ events/second — Kafka ingest with consumer groups and Redis-based deduplication.
+- [URLtrim](https://github.com/bythebug/urltrim): Personal URL shortener with custom aliases, click analytics, and rate limiting.
+
+## Blog
+
+- [Why I built keeto — AI observability shouldn't be hard](https://bythebug.github.io/blog/why-i-built-keeto/): Every LLM app I built had the same blind spot: no visibility into what was happening inside. Keeto wraps your LLM calls and logs latency, token counts, model, prompt, and response without changing how you write code.
+- [From backend engineer to content creator: what I learned in year one](https://bythebug.github.io/blog/backend-to-content-creator/): A year of making YouTube videos about software engineering while working full-time — what actually surprised me.
+- [How I structure every LLM project before writing a line of code](https://bythebug.github.io/blog/how-i-structure-llm-projects/): A checklist for LLM project architecture — streaming, caching, fallbacks, observability — before writing any code.
+
+## Creator Content
+
+- YouTube: https://youtube.com/@bythebug — Software engineering videos, LLM tutorials, building in public.
+- Instagram: https://instagram.com/suraj.builds — Behind the scenes, short-form content.
+- Spotify: https://open.spotify.com/artist/4McD3qf6GvaBvpX7J39B4o — Music under the bythebug name.
+- LinkedIn: https://linkedin.com/in/bythebug
+
+## Contact
+
+- Schedule a call: https://calendly.com/bythebug
+- GitHub: https://github.com/bythebug
+- Website: https://bythebug.github.io
