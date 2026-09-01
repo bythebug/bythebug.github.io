@@ -20,9 +20,39 @@ const youtubeIds: string[] = [
   'Sv1QR55SDxc',  // toronto to montreal to edmonton
   'heiAZHKileQ',  // a day in my life as a research intern
 ];
+
+const ytTitles: Record<string, string> = {
+  'n6sPWr213fI': 'MITACS GRI 2027: The Only Video You Need',
+  'aVEylJLff5Y': 'Pehli Baar Tum | Seher Ki Raat',
+  'BwlQJFNccrs': '2 years later. A fresh start.',
+  'eP0Kbfj4n9I': 'first snow in canada',
+  '_BqB29iSllw': 'making a music video in 24 hours',
+  '_-NEin1bXIk': 'inside google india | graduation day 2023',
+  'Sv1QR55SDxc': 'toronto to montreal to edmonton',
+  'heiAZHKileQ': 'a day in my life as a research intern',
+};
+
+const videoListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'bythebug YouTube Videos',
+  itemListElement: youtubeIds.map((id, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'VideoObject',
+      name: ytTitles[id],
+      url: `https://youtu.be/${id}`,
+      thumbnailUrl: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+      uploadDate: '2024-01-01',
+      author: { '@type': 'Person', name: 'Suraj Van Verma', url: 'https://youtube.com/@bythebug' },
+    },
+  })),
+};
 ---
 
 <Layout title="Archive — Suraj Van Verma" description="Videos, posts, and content from across the internet.">
+  <script type="application/ld+json" set:html={JSON.stringify(videoListLd)} />
   <Nav currentPage="home" />
 
   <main class="main">

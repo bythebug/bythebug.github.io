@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout title="404 — Page Not Found" description="This page doesn't exist.">
+  <Nav />
+  <main class="main">
+    <div class="container">
+      <p class="code">404</p>
+      <h1 class="heading">Page not found</h1>
+      <p class="sub">Whatever you were looking for isn't here.</p>
+      <a href="/" class="home-link">Go home →</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  .code {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 20vw, 10rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    color: var(--border);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+  }
+
+  .sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .home-link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: opacity 0.2s;
+    letter-spacing: -0.01em;
+  }
+
+  .home-link:hover { opacity: 0.7; }
+</style>

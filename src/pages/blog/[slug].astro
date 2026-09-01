@@ -19,9 +19,34 @@ const { Content } = await post.render();
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+const siteUrl = 'https://bythebug.github.io';
+const postUrl = `${siteUrl}/blog/${post.slug}/`;
+const blogPostLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  dateModified: post.data.date.toISOString(),
+  url: postUrl,
+  image: `${siteUrl}/og-image.png`,
+  author: {
+    '@type': 'Person',
+    name: 'Suraj Van Verma',
+    url: siteUrl,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Suraj Van Verma',
+    url: siteUrl,
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+};
 ---
 
 <Layout title={`${post.data.title} — Suraj Van Verma`} description={post.data.description} ogType="article" noJsonLd={true}>
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostLd)} />
   <Nav currentPage="home" />
 
   <main class="main">
