@@ -1,0 +1,246 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  );
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: { post, next: posts[i + 1] ?? null },
+  }));
+}
+
+const { post, next } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title={`${post.data.title} — Suraj Verma`} description={post.data.description}>
+  <Nav currentPage="home" />
+
+  <main class="main">
+    <div class="container">
+
+      <div class="post-header">
+        <a href="/blog" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Blog
+        </a>
+        <time class="post-date">{formatDate(post.data.date)}</time>
+        <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-desc">{post.data.description}</p>
+      </div>
+
+      {post.data.image && (
+        <div class="post-image">
+          <img src={post.data.image} alt="" />
+        </div>
+      )}
+
+      <article class="prose">
+        <Content />
+      </article>
+
+      {next && (
+        <div class="next-post">
+          <span class="next-label">Next</span>
+          <a href={`/blog/${next.slug}`} class="next-link">{next.data.title} →</a>
+        </div>
+      )}
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+  }
+
+  .container {
+    max-width: 860px;
+  }
+
+  /* ─── Header ─── */
+  .post-header {
+    padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .post-date {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    font-optical-sizing: auto;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .post-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── Hero image ─── */
+  .post-image {
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ─── Prose ─── */
+  .prose {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.65rem);
+    font-weight: 700;
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose :global(p) { margin-bottom: 1.4rem; }
+  .prose :global(p:last-child) { margin-bottom: 0; }
+
+  .prose :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose :global(a:hover) { opacity: 0.8; }
+
+  .prose :global(code) {
+    font-family: monospace;
+    font-size: 0.85em;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 0.15em 0.4em;
+  }
+
+  .prose :global(pre) {
+    background: var(--text);
+    color: var(--bg);
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin-block: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-block: 2.5rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.4rem;
+    list-style: revert;
+  }
+
+  .prose :global(li) { margin-bottom: 0.4rem; }
+
+  .prose :global(img) {
+    width: 100%;
+    height: auto;
+    margin-block: 2rem;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-block: 1.5rem;
+  }
+
+  /* ─── Next post ─── */
+  .next-post {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .next-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .next-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    transition: color 0.15s;
+  }
+
+  .next-link:hover { color: var(--accent); }
+</style>

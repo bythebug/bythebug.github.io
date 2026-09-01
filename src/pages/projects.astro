@@ -1,0 +1,648 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+const pypi = [
+  {
+    name: 'contextos-mem',
+    tagline: 'Your AI tools have different brains. ContextOS gives them one.',
+    install: 'pip install contextos-mem',
+    pypi: 'https://pypi.org/project/contextos-mem/',
+    github: 'https://github.com/bythebug/context-os',
+    version: '0.1.0',
+  },
+  {
+    name: 'keeto',
+    tagline: 'Zero-config AI observability for Python.',
+    install: 'pip install keeto',
+    pypi: 'https://pypi.org/project/keeto/',
+    github: 'https://github.com/bythebug/keeto',
+    version: '0.2.1',
+  },
+];
+
+const groups = [
+  {
+    label: 'AI / ML',
+    projects: [
+      {
+        title: 'LLM Studio',
+        note: 'Full-stack platform for fine-tuning LLMs with a job queue, remote GPU dispatch, and experiment tracking.',
+        url: 'https://github.com/bythebug/llm-studio',
+      },
+      {
+        title: 'ML Forge',
+        note: 'Feature engineering pipeline with 12 transformation techniques across 5 ML models.',
+        url: 'https://github.com/bythebug/ml-forge',
+      },
+      {
+        title: 'Smart Suggest',
+        note: 'Recommendation engine with a built-in A/B testing framework and KPI tracking.',
+        url: 'https://github.com/bythebug/smart-suggest',
+      },
+      {
+        title: 'Market Graph',
+        note: 'Models the S&P 500 as a network graph and uses PageRank to identify which stocks drive markets vs. follow them.',
+        url: 'https://github.com/bythebug/StockNet-Network-Based-Portfolio-Analyzer',
+      },
+      {
+        title: 'Data Lens',
+        note: 'Self-serve analytics platform with full-text search, filtering, aggregation, and time-series queries over a REST API.',
+        url: 'https://github.com/bythebug/data-lens',
+      },
+      {
+        title: 'Vani AI',
+        note: 'LLM chatbot infrastructure for WhatsApp — multi-model routing over a single messaging layer.',
+        url: 'https://github.com/bythebug/Vani-AI',
+      },
+      {
+        title: 'Salary Prediction',
+        note: 'ML-powered salary predictor with interactive visualizations. 90% accuracy, deployed on AWS.',
+        url: 'https://github.com/bythebug/Salary-Prediction-Web-App',
+      },
+    ],
+  },
+  {
+    label: 'Apps',
+    projects: [
+      {
+        title: 'AI Image Detector',
+        note: 'Detects AI-generated images by reading embedded content provenance metadata — fully browser-side, no data leaves your device.',
+        url: 'https://github.com/bythebug/AI-Image-Detector',
+        demo: 'https://aiimagedetector.netlify.app/',
+      },
+      {
+        title: 'iDoList',
+        note: 'Life-management app to organize goals, tasks, and habits into one executable dashboard.',
+        url: 'https://github.com/bythebug/idolist',
+      },
+      {
+        title: 'UML Canvas',
+        note: 'Type Python, get a live UML class diagram. Zero setup, runs entirely in the browser.',
+        url: 'https://github.com/bythebug/lld-viz',
+      },
+      {
+        title: 'Claude Monitor',
+        note: 'macOS menu bar app showing Claude Code usage percentage and session reset time.',
+        url: 'https://github.com/bythebug/claude-monitor',
+      },
+      {
+        title: 'LeetCode Streak Widget',
+        note: 'Native macOS widget showing a 7x7 LeetCode submission calendar. Always on your desktop.',
+        url: 'https://github.com/bythebug/LeetCode-Streak-Widget',
+      },
+      {
+        title: 'PicSort',
+        note: 'iOS gallery cleaner. Swipe right to keep, left to delete — one photo at a time.',
+        url: 'https://github.com/bythebug/PicSort-iOS-App',
+      },
+      {
+        title: 'MetroPass',
+        note: 'Contactless transit payments with RSA-encrypted card data. Keys never leave the device.',
+        url: 'https://github.com/bythebug/MetroPass-Travel-Card-App',
+      },
+      {
+        title: 'Task Flow',
+        note: 'Task management API with role-based permissions, JWT auth, and Redis-backed queuing.',
+        url: 'https://github.com/bythebug/task-flow',
+      },
+      {
+        title: 'LeadScrape',
+        note: 'Automatically extracts email addresses from LinkedIn post comments.',
+        url: 'https://github.com/bythebug/scrappy',
+      },
+    ],
+  },
+  {
+    label: 'Infra',
+    projects: [
+      {
+        title: 'PubSub Hub',
+        note: 'Redis pub/sub fan-out with circuit breakers that isolate slow consumers without stalling upstream producers.',
+        url: 'https://github.com/bythebug/realtime-hub',
+      },
+      {
+        title: 'Distributed Log Processor',
+        note: 'Processes 500K+ events/second — Kafka ingest with consumer groups and Redis-based deduplication.',
+        url: 'https://github.com/bythebug/Real-Time-Distributed-Log-Processing-System',
+      },
+      {
+        title: 'URLtrim',
+        note: 'Personal URL shortener with custom aliases, click analytics, and built-in rate limiting.',
+        url: 'https://github.com/bythebug/urltrim',
+      },
+    ],
+  },
+];
+
+const orgs = [
+  { name: 'Google',              logo: '/logo-google.svg',     type: 'svg' },
+  { name: 'Amazon Web Services', logo: '/logo-aws.svg',        type: 'svg' },
+  { name: 'McGill University',   logo: '/mcgill-logo.svg',     type: 'svg' },
+  { name: 'Mitacs',              logo: null,                   type: 'text' },
+  { name: 'Athabasca University',logo: '/logo-athabasca.svg',  type: 'svg' },
+  { name: 'IIT (BHU) Varanasi', logo: '/logo-iitbhu.png',     type: 'img' },
+];
+---
+
+<Layout
+  title="Projects — Suraj Verma"
+  description="Projects and organizations — the full picture of what Suraj Verma has built and where."
+>
+  <Nav currentPage="projects" />
+
+  <main class="main">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="page-header">
+        <h1 class="page-title">Projects</h1>
+      </div>
+
+      <!-- PyPI packages -->
+      <div class="pypi-grid">
+        {pypi.map(pkg => (
+          <div class="pypi-card">
+            <div class="pypi-card-top">
+              <div class="pypi-name-row">
+                <span class="pypi-name">{pkg.name}</span>
+                <span class="pypi-version">v{pkg.version}</span>
+              </div>
+              <p class="pypi-tagline">{pkg.tagline}</p>
+            </div>
+            <div class="pypi-install">
+              <span class="install-prompt">$</span>
+              <code class="install-cmd">{pkg.install}</code>
+            </div>
+            <div class="pypi-links">
+              <a href={pkg.pypi} target="_blank" rel="noopener noreferrer" class="pypi-link pypi-link--primary">PyPI ↗</a>
+              <a href={pkg.github} target="_blank" rel="noopener noreferrer" class="pypi-link">GitHub ↗</a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Organisations -->
+      <div class="orgs-header">
+        <span class="label">Places I've been</span>
+      </div>
+      <div class="orgs-grid">
+        {orgs.map(org => (
+          <div class="org-cell">
+            {org.type === 'svg' && (
+              <img src={org.logo} alt={org.name} class="org-logo" />
+            )}
+            {org.type === 'img' && (
+              <div class="org-with-icon">
+                <img src={org.logo} alt={org.name} class="org-icon" />
+                <span class="org-wordmark">{org.name}</span>
+              </div>
+            )}
+            {org.type === 'text' && (
+              <span class="org-wordmark">{org.name}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Projects grouped -->
+      <div class="section-header">
+        <span class="label">Side Projects</span>
+      </div>
+
+      {groups.map((group) => (
+        <div class="proj-group">
+          <div class="proj-group-header">
+            <span class="label">{group.label}</span>
+          </div>
+          <div class="proj-list">
+            {group.projects.map((p) => (
+              <div class="proj-row">
+                <span class="proj-name">{p.title}</span>
+                <span class="proj-note">{p.note}</span>
+                <div class="proj-links">
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" class="proj-link">GitHub ↗</a>
+                  {p.demo && <a href={p.demo} target="_blank" rel="noopener noreferrer" class="proj-link proj-link--accent">Live ↗</a>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Tech Stack -->
+      <div class="stack-section">
+        <div class="section-header">
+          <span class="label">Stack</span>
+        </div>
+        <div class="stack-tags">
+          {([
+            // Languages
+            { name: 'Python',      icon: '/stack-icons/python.svg',     bg: '#3776AB' },
+            { name: 'JavaScript',  icon: '/stack-icons/javascript.svg',  bg: '#F7DF1E', dark: true },
+            { name: 'TypeScript',  icon: '/stack-icons/typescript.svg',  bg: '#3178C6' },
+            { name: 'SQL',         icon: null,                           bg: '#4479A1' },
+            { name: 'Swift',       icon: '/stack-icons/swift.svg',       bg: '#F05138' },
+            // AI / ML
+            { name: 'PyTorch',     icon: '/stack-icons/pytorch.svg',     bg: '#EE4C2C' },
+            { name: 'TensorFlow',  icon: '/stack-icons/tensorflow.svg',  bg: '#FF6F00' },
+            { name: 'OpenAI',      icon: null,                           bg: '#000000' },
+            { name: 'Hugging Face',icon: '/stack-icons/huggingface.svg', bg: '#FFD21E', dark: true },
+            { name: 'LangChain',   icon: '/stack-icons/langchain.svg',   bg: '#1C3C3C' },
+            { name: 'NumPy',       icon: '/stack-icons/numpy.svg',       bg: '#013243' },
+            { name: 'Pandas',      icon: '/stack-icons/pandas.svg',      bg: '#150458' },
+            { name: 'scikit-learn',icon: '/stack-icons/scikitlearn.svg', bg: '#F7931E' },
+            { name: 'MLflow',      icon: null,                           bg: '#43B1E5' },
+            // Cloud
+            { name: 'AWS',         icon: '/stack-icons/aws.svg',         bg: '#FF9900' },
+            { name: 'GCP',         icon: '/stack-icons/gcp.svg',         bg: '#4285F4' },
+            { name: 'Firebase',    icon: '/stack-icons/firebase.svg',    bg: '#DD2C00' },
+            { name: 'Azure',       icon: '/stack-icons/azure.svg',       bg: '#0078D4' },
+            { name: 'S3',          icon: '/stack-icons/s3.svg',          bg: '#569A31' },
+            { name: 'Lambda',      icon: '/stack-icons/lambda.svg',      bg: '#FF9900' },
+            { name: 'DynamoDB',    icon: '/stack-icons/dynamodb.svg',    bg: '#4053D6' },
+            { name: 'EC2',         icon: '/stack-icons/ec2.svg',         bg: '#FF9900' },
+            // Infra & data
+            { name: 'Docker',      icon: '/stack-icons/docker.svg',      bg: '#2496ED' },
+            { name: 'PostgreSQL',  icon: '/stack-icons/postgresql.svg',  bg: '#4169E1' },
+            { name: 'Redis',       icon: '/stack-icons/redis.svg',       bg: '#DC382D' },
+            { name: 'Kafka',       icon: '/stack-icons/kafka.svg',       bg: '#231F20' },
+            { name: 'Prometheus',  icon: '/stack-icons/prometheus.svg',  bg: '#E6522C' },
+            { name: 'RabbitMQ',    icon: '/stack-icons/rabbitmq.svg',    bg: '#FF6600' },
+            // Frameworks & tools
+            { name: 'FastAPI',     icon: '/stack-icons/fastapi.svg',     bg: '#009688' },
+            { name: 'SwiftUI',     icon: '/stack-icons/swift.svg',       bg: '#0A84FF' },
+            { name: 'Astro',       icon: '/stack-icons/astro.svg',       bg: '#FF5D01' },
+            { name: 'PyPI',        icon: '/stack-icons/pypi.svg',        bg: '#3775A9' },
+            // Protocols & standards
+            { name: 'REST',        icon: null,                           bg: '#6E6E6E' },
+            { name: 'SSH',         icon: null,                           bg: '#2C3E50' },
+            { name: 'RSA',         icon: null,                           bg: '#7B4F9E' },
+            { name: 'C2PA',        icon: null,                           bg: '#1E8A5E' },
+          ] as { name: string; icon: string | null; bg: string; dark?: boolean }[]).map(tag => (
+            <span class="stack-tag" style={`background:${tag.bg};color:${tag.dark ? '#111' : '#fff'}`}>
+              {tag.icon && <img src={tag.icon} alt="" class="stack-icon" style={tag.dark ? 'filter:none;opacity:0.85' : ''} />}
+              {tag.name}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="page-footer">
+        <div class="footer-inner">
+          <span class="label">All repos public</span>
+          <a href="https://github.com/bythebug" target="_blank" rel="noopener noreferrer" class="github-link">
+            github.com/bythebug ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  /* ─── Header ─── */
+  .page-header {
+    padding-block: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    font-optical-sizing: auto;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
+  }
+
+  /* ─── PyPI cards ─── */
+  .pypi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .pypi-card {
+    background: var(--text);
+    color: var(--bg);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .pypi-card-top { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .pypi-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .pypi-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--bg);
+  }
+
+  .pypi-version {
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: color-mix(in srgb, var(--bg) 45%, transparent);
+  }
+
+  .pypi-tagline {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    color: var(--bg);
+    line-height: 1.45;
+  }
+
+  .pypi-install {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: color-mix(in srgb, var(--bg) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
+    padding: 0.6rem 0.9rem;
+    font-family: monospace;
+    width: fit-content;
+  }
+
+  .install-prompt {
+    color: color-mix(in srgb, var(--bg) 40%, transparent);
+    font-size: 0.78rem;
+    user-select: none;
+  }
+
+  .install-cmd {
+    font-size: 0.8rem;
+    color: var(--bg);
+  }
+
+  .pypi-links { display: flex; gap: 1rem; }
+
+  .pypi-link {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--bg) 55%, transparent);
+    transition: color 0.2s;
+  }
+  .pypi-link--primary { color: var(--bg); }
+  .pypi-link:hover { color: var(--bg); }
+
+  .section-header {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    margin-inline: calc(-1 * var(--pad-x));
+    padding-inline: var(--pad-x);
+  }
+
+  .section-header .label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text);
+  }
+
+  /* ─── Projects grouped ─── */
+  .proj-group {
+    margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .proj-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+    margin-inline: calc(-1 * var(--pad-x));
+    padding-inline: var(--pad-x);
+  }
+
+  .proj-group-header .label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .proj-list {
+    /* border handled by proj-group-header above */
+  }
+
+  .proj-row {
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    align-items: baseline;
+    gap: 2.5rem;
+    padding-block: clamp(0.9rem, 2vw, 1.1rem);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+    margin-inline: calc(-1 * var(--pad-x));
+    padding-inline: var(--pad-x);
+  }
+
+  .proj-row:hover { background: var(--bg-alt); }
+
+  .proj-name {
+    font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.015em;
+  }
+
+  .proj-note {
+    font-size: 0.84rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .proj-links {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    flex-shrink: 0;
+  }
+
+  .proj-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .proj-link:hover { color: var(--text); }
+  .proj-link--accent { color: var(--accent); }
+  .proj-link--accent:hover { opacity: 0.75; }
+
+  /* ─── Orgs ─── */
+  .orgs-header {
+    margin-bottom: 1rem;
+  }
+
+  /* ─── Orgs grid ─── */
+  .orgs-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .org-cell {
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 3vw, 2.25rem) clamp(0.75rem, 1.5vw, 1.25rem);
+    transition: background 0.2s;
+  }
+
+  .org-cell:hover { background: var(--bg-alt); }
+
+  .org-logo {
+    max-width: 120px;
+    max-height: 36px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+
+  .org-cell:hover .org-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .org-with-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .org-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+
+  .org-cell:hover .org-icon {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .org-wordmark {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: -0.02em;
+    text-align: center;
+    transition: color 0.2s;
+    line-height: 1.3;
+  }
+
+  .org-cell:hover .org-wordmark { color: var(--text); }
+
+  /* ─── Stack ─── */
+  .stack-section {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .stack-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+    padding: 0.35rem 0.7rem;
+    white-space: nowrap;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .stack-tag:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .stack-icon {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  /* ─── Footer ─── */
+  .page-footer {
+    padding-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .github-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .github-link:hover { color: var(--accent); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .pypi-grid {
+      grid-template-columns: 1fr;
+    }
+    .orgs-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .proj-row {
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+    }
+    .proj-note { display: none; }
+    .orgs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

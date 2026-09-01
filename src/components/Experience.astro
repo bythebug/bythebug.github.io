@@ -1,0 +1,136 @@
+---
+const jobs = [
+  {
+    period: '2022 – Present',
+    company: 'Your Company',
+    role: 'Software Engineer',
+    type: 'Full-time',
+    description:
+      'Building and scaling backend systems and AIML infrastructure. Focused on inference pipelines, data engineering, and developer tooling that runs at production scale.',
+    tech: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
+  },
+  {
+    period: '2020 – 2022',
+    company: 'Previous Company',
+    role: 'Backend Engineer',
+    type: 'Full-time',
+    description:
+      'Designed and maintained REST APIs and microservices for a consumer product used by 100K+ users. Reduced p99 API latency by 40% through query optimization and strategic caching.',
+    tech: ['Node.js', 'Express', 'MongoDB', 'Redis'],
+  },
+  {
+    period: '2022 – Present',
+    company: 'bythebug',
+    role: 'Content Creator',
+    type: 'Independent',
+    description:
+      'Running a YouTube channel at the intersection of engineering, lifestyle, and travel. Host of "Software Engineer for Founders" and multiple original series with 50K+ community across platforms.',
+    tech: ['Content Strategy', 'Video Production', 'DaVinci Resolve'],
+  },
+];
+---
+
+<section class="section" id="experience">
+  <div class="container">
+
+    <span class="label reveal">Experience</span>
+    <hr class="rule" style="margin-top: 1rem; margin-bottom: clamp(2rem, 5vw, 4rem);" />
+
+    <div class="exp-list">
+      {jobs.map((job, i) => (
+        <div class={`exp-item reveal reveal-d${Math.min(i + 1, 4)}`}>
+          <div class="exp-period">
+            <span class="label">{job.period}</span>
+          </div>
+          <div class="exp-content">
+            <div class="exp-head">
+              <div class="exp-titles">
+                <h3 class="exp-role">{job.role}</h3>
+                <p class="exp-company">{job.company}</p>
+              </div>
+              <span class="exp-badge label">{job.type}</span>
+            </div>
+            <p class="exp-desc">{job.description}</p>
+            <div class="exp-tech">
+              {job.tech.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </div>
+          <hr class="rule exp-rule" />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 clamp(2rem, 4vw, 4rem);
+    padding-top: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .exp-rule {
+    grid-column: 1 / -1;
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .exp-period {
+    padding-top: 0.25rem;
+  }
+
+  .exp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+  }
+
+  .exp-role {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 500;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .exp-company {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .exp-badge {
+    flex-shrink: 0;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+  }
+
+  .exp-desc {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.68;
+    max-width: 62ch;
+    margin-bottom: 1rem;
+  }
+
+  .exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 640px) {
+    .exp-item {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+  }
+</style>

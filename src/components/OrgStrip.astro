@@ -1,0 +1,124 @@
+---
+---
+
+<div class="strip-wrap" aria-label="Organizations">
+  <div class="strip-track">
+    <!-- Duplicated for seamless loop -->
+    {[0, 1].map(() => (
+      <div class="strip-set">
+
+        <!-- Google -->
+        <div class="org-item">
+          <img src="/logo-google.svg" alt="Google" class="org-logo org-logo--wide" />
+        </div>
+
+        <!-- McGill -->
+        <div class="org-item">
+          <div class="org-with-text">
+            <img src="/mcgill-logo.svg" alt="McGill University" class="org-logo org-logo--icon" />
+            <span class="org-name">McGill University</span>
+          </div>
+        </div>
+
+        <!-- Mitacs — SVG wordmark inline -->
+        <div class="org-item">
+          <svg class="org-logo org-logo--wide" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mitacs">
+            <text x="0" y="30" font-family="Georgia, serif" font-size="28" font-weight="700" fill="currentColor" letter-spacing="-0.5">Mitacs</text>
+          </svg>
+        </div>
+
+        <!-- Athabasca -->
+        <div class="org-item">
+          <img src="/logo-athabasca.svg" alt="Athabasca University" class="org-logo org-logo--wide" />
+        </div>
+
+        <!-- IIT BHU -->
+        <div class="org-item">
+          <div class="org-with-text">
+            <img src="/logo-iitbhu.png" alt="IIT BHU" class="org-logo org-logo--icon" />
+            <span class="org-name">IIT (BHU) Varanasi</span>
+          </div>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .strip-wrap {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-block: 1.25rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .strip-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+
+  .strip-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .strip-set {
+    display: flex;
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .org-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition: opacity 0.2s;
+    filter: grayscale(100%);
+  }
+
+  .strip-track:hover .org-item:hover {
+    opacity: 0.85;
+    filter: grayscale(0%);
+  }
+
+  .org-with-text {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .org-logo {
+    display: block;
+    object-fit: contain;
+  }
+
+  .org-logo--wide {
+    height: 22px;
+    width: auto;
+    max-width: 140px;
+  }
+
+  .org-logo--icon {
+    height: 36px;
+    width: 36px;
+    object-fit: contain;
+  }
+
+  .org-name {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+</style>

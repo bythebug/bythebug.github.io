@@ -1,0 +1,301 @@
+---
+interface Props {
+  currentPage?: string;
+}
+const { currentPage = 'home' } = Astro.props;
+
+const links = [
+  { label: 'Projects',   href: '/projects' },
+  { label: 'Blog',       href: '/blog' },
+  { label: 'Archive',    href: '/archive' },
+  { label: 'About',      href: '/about' },
+  { label: 'Contact',    href: '/#contact' },
+];
+---
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="pulse-dot"></span>
+      Suraj Van Verma
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        {links.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+  <ul>
+    {links.map((l) => (
+      <li><a href={l.href}>{l.label}</a></li>
+    ))}
+  </ul>
+  <div class="mobile-footer">
+    <a href="https://youtube.com/@bythebug" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+    <a href="https://linkedin.com/in/bythebug" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a href="https://instagram.com/suraj.builds" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+  </div>
+</div>
+
+<style>
+  /* ─── Nav shell ─── */
+  .nav {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    transition: background 0.35s, border-color 0.35s;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav.scrolled {
+    background: rgba(249, 248, 245, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-color: var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 1.1rem var(--pad-x);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* ─── Logo ─── */
+  .nav-logo {
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: opacity 0.2s;
+  }
+  .nav-logo:hover { opacity: 0.65; }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse-dot 2.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ─── Desktop links ─── */
+  .nav-inner nav {
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    color: var(--text);
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── Theme toggle ─── */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    background: var(--bg-alt);
+  }
+
+  /* show sun in dark mode, moon in light */
+  .icon-sun { display: none; }
+  .icon-moon { display: block; }
+
+  :global([data-theme="dark"]) .icon-sun { display: block; }
+  :global([data-theme="dark"]) .icon-moon { display: none; }
+
+  /* dark nav scrolled bg */
+  :global([data-theme="dark"]) .nav.scrolled {
+    background: rgba(17, 17, 16, 0.88);
+  }
+
+  /* ─── Hamburger ─── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 1.5px;
+    background: var(--text);
+    transition: transform 0.3s var(--ease-out), opacity 0.3s, width 0.3s;
+    transform-origin: center;
+  }
+
+  .nav-toggle span:first-child { width: 22px; }
+  .nav-toggle span:last-child  { width: 14px; }
+
+  .nav-toggle.open span:first-child {
+    width: 22px;
+    transform: translateY(3.25px) rotate(45deg);
+  }
+  .nav-toggle.open span:last-child {
+    width: 22px;
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  /* ─── Mobile menu ─── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: 54px;
+    z-index: 99;
+    background: var(--bg);
+    padding: 2rem var(--pad-x) 3rem;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .mobile-menu a {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 10vw, 3rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    letter-spacing: -0.03em;
+    transition: color 0.2s, padding-left 0.25s var(--ease-out);
+  }
+
+  .mobile-menu li:first-child a { border-top: 1px solid var(--border); }
+  .mobile-menu a:hover { color: var(--accent); padding-left: 0.5rem; }
+
+  .mobile-footer {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .mobile-footer a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .mobile-footer a:hover { color: var(--text); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 660px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle')!;
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  const nav       = document.getElementById('nav')!;
+  const toggle    = nav.querySelector('.nav-toggle') as HTMLButtonElement;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    },
+    { passive: true }
+  );
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

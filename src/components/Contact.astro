@@ -1,0 +1,193 @@
+---
+const email = 'surajvanv@gmail.com';
+
+const socials = [
+  { label: 'YouTube',   handle: '@bythebug',     url: 'https://youtube.com/@bythebug' },
+  { label: 'LinkedIn',  handle: 'bythebug',       url: 'https://linkedin.com/in/bythebug' },
+  { label: 'Instagram', handle: 'suraj.builds',   url: 'https://instagram.com/suraj.builds' },
+  { label: 'GitHub',    handle: 'bythebug',       url: 'https://github.com/bythebug' },
+];
+---
+
+<section class="section contact-section" id="contact">
+  <div class="container">
+
+    <hr class="rule" />
+
+    <!-- Heading + email -->
+    <div class="contact-grid">
+      <div class="contact-heading reveal">
+        <h2 class="line-light">Let's work</h2>
+        <h2 class="line-bold">together<span class="period">.</span></h2>
+      </div>
+      <div class="contact-body reveal reveal-d1">
+        <p class="contact-sub">
+          Got a project, collab idea, or just want to talk tech?
+        </p>
+        <a href={`mailto:${email}`} class="email-link">
+          {email}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 15L15 5M15 5H8M15 5V12"
+              stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin-block: 3rem 2.5rem;" />
+
+    <!-- Social grid -->
+    <div class="socials-grid reveal reveal-d2">
+      {socials.map((s) => (
+        <a href={s.url} class="social-card" target="_blank" rel="noopener noreferrer">
+          <span class="label social-platform">{s.label}</span>
+          <span class="social-handle">{s.handle}</span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Footer -->
+    <hr class="rule" style="margin-top: 4rem;" />
+    <div class="footer-bar reveal">
+      <span class="label">© 2024 Suraj Van Verma</span>
+      <span class="label">Built with care & code.</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+    padding-bottom: 4rem;
+  }
+
+  /* ─── Heading + email ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: end;
+    padding-block: clamp(3rem, 7vw, 6rem);
+  }
+
+  .line-light,
+  .line-bold {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-optical-sizing: auto;
+  }
+
+  .line-light {
+    font-weight: 200;
+  }
+
+  .line-bold {
+    font-weight: 800;
+    font-variation-settings: 'SOFT' 80;
+  }
+
+  .period {
+    color: var(--accent);
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    line-height: 1.55;
+  }
+
+  .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: clamp(0.875rem, 2.2vw, 1.15rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+    word-break: break-all;
+  }
+
+  .email-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .email-link svg {
+    flex-shrink: 0;
+    transition: transform 0.25s var(--ease-out);
+  }
+  .email-link:hover svg { transform: translate(3px, -3px); }
+
+  /* ─── Socials ─── */
+  .socials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .social-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .social-card:hover { background: var(--bg-alt); }
+
+  .social-platform {
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+
+  .social-handle {
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .social-arrow {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: 0.75rem;
+    display: block;
+    transition: color 0.2s, transform 0.2s var(--ease-out);
+  }
+
+  .social-card:hover .social-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* ─── Footer bar ─── */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.5rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .socials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+const posts = [
+  {
+    date: 'Nov 2024',
+    category: 'Engineering',
+    title: 'Building a production RAG pipeline: what nobody tells you',
+    excerpt:
+      "After six months running RAG in production: what broke, what held, and what I'd do differently from day one.",
+    url: '#',
+  },
+  {
+    date: 'Sep 2024',
+    category: 'Software Engineer for Founders',
+    title: 'Why your startup should delay hiring a CTO for as long as possible',
+    excerpt:
+      'A counterintuitive take on technical leadership and what founders should build before they stop writing code.',
+    url: '#',
+  },
+  {
+    date: 'Aug 2024',
+    category: 'Lifestyle',
+    title: 'A week in Rishikesh: solo, camera, no plan',
+    excerpt:
+      'The day I left Bangalore with just a backpack, a camera roll, and an open-ended train ticket.',
+    url: '#',
+  },
+  {
+    date: 'Jun 2024',
+    category: 'Engineering',
+    title: 'FastAPI vs Django REST: the honest comparison',
+    excerpt:
+      "Not a benchmark. A pragmatic guide to picking the right tool based on what you're actually building.",
+    url: '#',
+  },
+];
+---
+
+<section class="section" id="writing">
+  <div class="container">
+
+    <div class="writing-header reveal">
+      <span class="label">Blog</span>
+      <a href="#" class="label view-all">All posts ↗</a>
+    </div>
+    <hr class="rule" style="margin-top: 1rem;" />
+
+    <div class="post-list">
+      {posts.map((post, i) => (
+        <a
+          href={post.url}
+          class={`post-item reveal reveal-d${Math.min(i + 1, 4)}`}
+          aria-label={post.title}
+        >
+          <div class="post-date">
+            <span class="label">{post.date}</span>
+          </div>
+          <div class="post-body">
+            <span class="label post-cat">{post.category}</span>
+            <h3 class="post-title">{post.title}</h3>
+            <p class="post-excerpt">{post.excerpt}</p>
+          </div>
+          <div class="post-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M5 15L15 5M15 5H8M15 5V12"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .writing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .view-all {
+    transition: color 0.2s;
+  }
+  .view-all:hover { color: var(--text); }
+
+  /* ─── Post list ─── */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-item {
+    display: grid;
+    grid-template-columns: 96px 1fr auto;
+    gap: 1.5rem 2rem;
+    align-items: start;
+    padding-block: clamp(1.5rem, 3.5vw, 2.25rem);
+    border-bottom: 1px solid var(--border);
+    /* pull sides to container edge for full-width hover */
+    margin-inline: calc(-1 * var(--pad-x));
+    padding-inline: var(--pad-x);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .post-item:first-child { border-top: 1px solid var(--border); }
+
+  .post-item:hover { background: var(--bg-alt); }
+  .post-item:hover .post-title { color: var(--accent); }
+  .post-item:hover .post-arrow {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+  }
+
+  .post-date {
+    padding-top: 0.15rem;
+  }
+
+  .post-cat {
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+    font-weight: 500;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .post-excerpt {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.62;
+    max-width: 68ch;
+  }
+
+  .post-arrow {
+    color: var(--text-muted);
+    transition: transform 0.25s var(--ease-out), color 0.2s;
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 600px) {
+    .post-item {
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+    }
+    .post-date { display: none; }
+  }
+</style>

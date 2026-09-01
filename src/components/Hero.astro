@@ -1,0 +1,274 @@
+---
+---
+
+<section class="hero">
+
+  <!-- Floating photo — independent of the grid -->
+  <div class="hero-photo-float">
+    <img src="/DPs.png" alt="Suraj Verma" class="hero-photo" />
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Large display name -->
+      <div class="hero-top">
+        <hr class="rule" />
+        <div class="hero-name" aria-label="Suraj Verma">
+          <span class="name-line name-first">Suraj</span>
+          <span class="name-line name-last">Verma<span class="period">.</span></span>
+        </div>
+        <hr class="rule" />
+      </div>
+
+      <!-- Role + description columns -->
+      <div class="hero-meta">
+        <div class="meta-left">
+          <div class="meta-block">
+            <span class="label">Role</span>
+            <p class="meta-title">Software Engineer</p>
+            <p class="meta-sub">Backend · AIML · Systems</p>
+          </div>
+          <div class="meta-block">
+            <span class="label">Education</span>
+            <div class="edu-row">
+              <img src="/mcgill-logo.svg" alt="McGill University" class="mcgill-logo" />
+              <div>
+                <p class="meta-title">McGill University</p>
+                <p class="meta-sub">Masters · Computer Science</p>
+              </div>
+            </div>
+          </div>
+          <p class="tagline">
+            Building at the intersection<br />of code and curiosity.
+          </p>
+          <a href="#work" class="cta-link">
+            View Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 12V4M8 12L4 8M8 12L12 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div class="meta-right">
+          <div class="meta-block">
+            <span class="label">Creating</span>
+            <p class="meta-title">bythebug</p>
+            <p class="meta-sub">Tech · Lifestyle · Travel</p>
+          </div>
+          <div class="socials">
+            <a href="https://youtube.com/@bythebug" target="_blank" rel="noopener noreferrer" class="social-link">
+              YouTube ↗
+            </a>
+            <a href="https://linkedin.com/in/bythebug" target="_blank" rel="noopener noreferrer" class="social-link">
+              LinkedIn ↗
+            </a>
+            <a href="https://instagram.com/suraj.builds" target="_blank" rel="noopener noreferrer" class="social-link">
+              Instagram ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4.5rem;
+  }
+
+  /* ─── Floating photo ─── */
+  .hero-photo-float {
+    position: absolute;
+    right: clamp(2rem, 5vw, 6rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(220px, 22vw, 320px);
+    pointer-events: none;
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    border-radius: 3px;
+  }
+
+  /* ─── Name ─── */
+  .hero-top {
+    animation: hero-up 0.9s var(--ease-out) both;
+  }
+
+  .hero-name {
+    padding-block: clamp(0.6rem, 2vw, 1.25rem);
+  }
+
+  .name-line {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 10vw, 9.5rem);
+    line-height: 0.91;
+    letter-spacing: -0.035em;
+    font-optical-sizing: auto;
+  }
+
+  .name-first {
+    font-weight: 200;
+  }
+
+  .name-last {
+    font-weight: 800;
+    font-variation-settings: 'SOFT' 80;
+  }
+
+  .period {
+    color: var(--accent);
+  }
+
+  .hero-inner {
+    padding-right: clamp(240px, 28vw, 400px);
+  }
+
+  /* ─── Meta ─── */
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-top: clamp(1.25rem, 3.5vw, 2.25rem);
+    animation: hero-up 0.9s var(--ease-out) 0.18s both;
+  }
+
+  .meta-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+  }
+
+  .mcgill-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .meta-title {
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .meta-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .tagline {
+    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    color: var(--text-muted);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 3px;
+    transition: color 0.2s var(--ease-in-out);
+  }
+
+  .cta-link:hover { color: var(--accent); }
+
+  .cta-link svg {
+    transition: transform 0.3s var(--ease-out);
+  }
+  .cta-link:hover svg { transform: translateY(3px); }
+
+  .meta-right {
+    padding-left: clamp(1rem, 3vw, 2rem);
+    border-left: 1px solid var(--border);
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .social-link {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    width: fit-content;
+    transition: color 0.2s;
+  }
+  .social-link:hover { color: var(--text); }
+
+  /* ─── Animation ─── */
+  @keyframes hero-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .hero-photo-float {
+      display: none;
+    }
+    .hero-inner {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-meta {
+      grid-template-columns: 1fr;
+    }
+    .meta-right {
+      padding-left: 0;
+      border-left: none;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+  }
+</style>
+

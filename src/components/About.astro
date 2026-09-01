@@ -1,0 +1,259 @@
+---
+const stats = [
+  { value: '4+',   label: 'Years\nEngineering' },
+  { value: '20+',  label: 'Projects\nShipped' },
+  { value: '3',    label: 'Active\nSeries' },
+  { value: '50K+', label: 'Community\nMembers' },
+];
+---
+
+<section class="section" id="about">
+  <div class="container">
+
+    <span class="label reveal">About</span>
+    <hr class="rule" style="margin-top: 1rem; margin-bottom: clamp(2rem, 5vw, 4rem);" />
+
+    <div class="about-grid">
+
+      <!-- Photo -->
+      <div class="about-visual reveal">
+        <div class="photo-frame">
+          <img src="/Second.JPG" alt="Suraj Verma" />
+        </div>
+        <div class="availability">
+          <span class="dot"></span>
+          <span>Available for new opportunities</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <h2 class="about-heading reveal">
+          Engineer by craft,<br />storyteller by choice.
+        </h2>
+
+        <div class="about-body reveal reveal-d1">
+          <p>
+            I'm Suraj, a backend and AIML engineer who builds systems that scale and, somewhere between commits, picks up a camera.
+          </p>
+          <p>
+            Through <strong>bythebug</strong>, I create content that lives at the intersection of technology, travel, and everyday life. From deep-dive engineering series for founders to solo travel diaries shot on a phone.
+          </p>
+          <p>
+            The thread connecting all of it: genuine curiosity. Whether I'm designing a high-throughput inference pipeline or framing a shot in a new city, I want to understand how things work and share that with people who care.
+          </p>
+        </div>
+
+        <div class="about-actions reveal reveal-d2">
+          <a href="/resume.pdf" class="resume-btn" download>
+            Download Résumé
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 10V2M7 10L4 7M7 10L10 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a href="https://beacons.ai/bythebug" target="_blank" rel="noopener noreferrer" class="beacons-btn">
+            Creator Portfolio ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid reveal reveal-d3">
+      {stats.map((s) => (
+        <div class="stat-cell">
+          <span class="stat-value">{s.value}</span>
+          <span class="stat-label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ─── Grid ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    margin-bottom: clamp(3rem, 7vw, 5rem);
+  }
+
+  /* ─── Photo ─── */
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 3 / 4;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle grid texture */
+  .photo-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.6;
+  }
+
+  .photo-initials {
+    font-family: var(--font-display);
+    font-size: 6rem;
+    font-weight: 700;
+    font-variation-settings: 'SOFT' 100;
+    color: var(--border);
+    letter-spacing: -0.04em;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse 2.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ─── Text ─── */
+  .about-heading {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-optical-sizing: auto;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .about-body p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.72;
+  }
+
+  .about-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .resume-btn,
+  .beacons-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 0.7rem 1.3rem;
+    transition: border-color 0.25s, background 0.25s, color 0.25s;
+  }
+
+  .resume-btn:hover,
+  .beacons-btn:hover {
+    border-color: var(--text);
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  /* ─── Stats ─── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .stat-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.75rem 1.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    font-optical-sizing: auto;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    white-space: pre-line;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .photo-placeholder {
+      aspect-ratio: 4 / 3;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
