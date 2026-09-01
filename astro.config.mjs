@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // Set to your GitHub Pages URL
-  // User page (username.github.io): site: 'https://bythebug.github.io'
-  // Project page: also set base: '/repo-name'
   site: 'https://bythebug.github.io',
   output: 'static',
+  integrations: [sitemap()],
 });
