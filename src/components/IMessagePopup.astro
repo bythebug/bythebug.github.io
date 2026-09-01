@@ -16,9 +16,9 @@
     </div>
 
     <div class="imsg-body">
-      <div class="imsg-avatar">SV</div>
+      <img src="/DPs.png" alt="Suraj" class="imsg-avatar" />
       <div class="imsg-content">
-        <span class="imsg-sender">Suraj Van Verma</span>
+        <span class="imsg-sender">Suraj</span>
         <div class="imsg-bubble">
           Hey! Want to connect? Let's schedule a call 👋
         </div>
@@ -60,15 +60,16 @@
   }
 
   .imsg-card {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 18px;
-    padding: 1rem 1.1rem 1.1rem;
-    width: 300px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 0.85rem 1rem 1rem;
+    width: 310px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.06);
     position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
   }
 
   :global([data-theme="dark"]) .imsg-card {
@@ -121,18 +122,11 @@
   }
 
   .imsg-avatar {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #CD5C3A, #e8855f);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #fff;
+    object-fit: cover;
     flex-shrink: 0;
-    letter-spacing: 0.02em;
   }
 
   .imsg-content {
