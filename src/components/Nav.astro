@@ -65,16 +65,15 @@ const links = [
     inset-block-start: 0;
     inset-inline: 0;
     z-index: 100;
-    transition: background 0.35s, border-color 0.35s, box-shadow 0.35s;
+    transition: background 0.35s, border-color 0.35s;
     border-bottom: 1px solid transparent;
   }
 
   .nav.scrolled {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-color: #d8d6ce;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    background: rgba(249, 248, 245, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-color: var(--border);
   }
 
   .nav-inner {
@@ -162,9 +161,7 @@ const links = [
 
   /* dark nav scrolled bg */
   :global([data-theme="dark"]) .nav.scrolled {
-    background: rgba(28, 28, 26, 0.92);
-    border-color: #3a3a36;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(17, 17, 16, 0.88);
   }
 
   /* ─── Hamburger ─── */
