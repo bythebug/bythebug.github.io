@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import IMessagePopup from '../components/IMessagePopup.astro';
 
 interface Props {
   title?: string;
@@ -42,6 +43,7 @@ const {
   </head>
   <body>
     <slot />
+    <IMessagePopup />
 
     <script>
       const io = new IntersectionObserver(

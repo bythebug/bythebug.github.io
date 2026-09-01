@@ -1,0 +1,220 @@
+---
+---
+
+<div class="imsg-wrap" id="imsg-popup" aria-live="polite">
+  <div class="imsg-card">
+    <button class="imsg-close" id="imsg-close" aria-label="Dismiss">×</button>
+
+    <div class="imsg-header">
+      <div class="imsg-app-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+      </div>
+      <span class="imsg-app-name">iMessage</span>
+      <span class="imsg-time">now</span>
+    </div>
+
+    <div class="imsg-body">
+      <div class="imsg-avatar">SV</div>
+      <div class="imsg-content">
+        <span class="imsg-sender">Suraj Van Verma</span>
+        <div class="imsg-bubble">
+          Hey! Want to connect? Let's schedule a call 👋
+        </div>
+        <a
+          href="https://calendly.com/bythebug"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="imsg-cta"
+        >
+          Schedule a call →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .imsg-wrap {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+    transform: translateY(calc(100% + 2rem));
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .imsg-wrap.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .imsg-wrap.hiding {
+    transform: translateY(calc(100% + 2rem));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .imsg-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    padding: 1rem 1.1rem 1.1rem;
+    width: 300px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  :global([data-theme="dark"]) .imsg-card {
+    background: rgba(30, 30, 32, 0.92);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Header */
+  .imsg-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .imsg-app-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #4cd964, #2ba84a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .imsg-app-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #6b6b6b;
+    letter-spacing: 0.01em;
+  }
+
+  :global([data-theme="dark"]) .imsg-app-name {
+    color: #9a9a9a;
+  }
+
+  .imsg-time {
+    font-size: 0.68rem;
+    color: #9a9a9a;
+    margin-left: auto;
+  }
+
+  /* Body */
+  .imsg-body {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .imsg-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #CD5C3A, #e8855f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .imsg-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .imsg-sender {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin-bottom: 0.3rem;
+  }
+
+  :global([data-theme="dark"]) .imsg-sender {
+    color: #d0d0d0;
+  }
+
+  .imsg-bubble {
+    background: #e9e9eb;
+    border-radius: 14px 14px 14px 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: #1c1c1e;
+    margin-bottom: 0.6rem;
+  }
+
+  :global([data-theme="dark"]) .imsg-bubble {
+    background: #3a3a3c;
+    color: #f0f0f0;
+  }
+
+  .imsg-cta {
+    display: inline-block;
+    background: #007AFF;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    transition: opacity 0.15s;
+    text-decoration: none;
+  }
+
+  .imsg-cta:hover {
+    opacity: 0.85;
+    color: #fff;
+  }
+
+  /* Close */
+  .imsg-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0.1rem 0.3rem;
+    transition: color 0.15s;
+  }
+
+  .imsg-close:hover { color: #555; }
+
+  :global([data-theme="dark"]) .imsg-close:hover { color: #ddd; }
+</style>
+
+<script>
+  const popup = document.getElementById('imsg-popup')!;
+  const closeBtn = document.getElementById('imsg-close')!;
+
+  if (!sessionStorage.getItem('imsg-dismissed')) {
+    setTimeout(() => popup.classList.add('visible'), 1800);
+  }
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.add('hiding');
+    sessionStorage.setItem('imsg-dismissed', '1');
+    setTimeout(() => popup.classList.remove('visible', 'hiding'), 500);
+  });
+</script>
