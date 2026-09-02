@@ -323,7 +323,12 @@ const orgs = [
       <!-- Footer -->
       <div class="page-footer">
         <div class="footer-inner">
-          <span class="label">All repos public</span>
+          <div class="footer-left">
+            <span class="label">All repos public</span>
+            <a href="https://scholar.google.com/citations?hl=en&user=-eNkG08AAAAJ" target="_blank" rel="noopener noreferrer" class="scholar-link">
+              Google Scholar ↗
+            </a>
+          </div>
           <a href="https://github.com/bythebug" target="_blank" rel="noopener noreferrer" class="github-link">
             github.com/bythebug ↗
           </a>
@@ -721,11 +726,26 @@ const orgs = [
 
   .footer-inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem 1.5rem;
     padding-block: 1.5rem;
     border-top: 1px solid var(--border);
   }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .scholar-link {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .scholar-link:hover { color: var(--text); }
 
   .github-link {
     font-size: 0.875rem;
