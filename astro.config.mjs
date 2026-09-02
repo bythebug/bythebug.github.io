@@ -5,4 +5,7 @@ export default defineConfig({
   site: 'https://bythebug.github.io',
   output: 'static',
   integrations: [sitemap()],
+  redirects: {
+    '/book': 'https://calendly.com/bythebug',
+  },
 });
