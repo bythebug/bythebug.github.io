@@ -2,22 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 
-const pypi = [
+const packages = [
   {
     name: 'contextos-mem',
     tagline: 'Your AI tools have different brains. ContextOS gives them one.',
-    install: 'pip install contextos-mem',
-    pypi: 'https://pypi.org/project/contextos-mem/',
+    install: ['pip install contextos-mem'],
+    badge: 'v0.1.0',
     github: 'https://github.com/bythebug/context-os',
-    version: '0.1.0',
+    links: [
+      { label: 'PyPI ↗', url: 'https://pypi.org/project/contextos-mem/', primary: true },
+      { label: 'GitHub ↗', url: 'https://github.com/bythebug/context-os' },
+    ],
   },
   {
     name: 'keeto',
     tagline: 'Zero-config AI observability for Python.',
-    install: 'pip install keeto',
-    pypi: 'https://pypi.org/project/keeto/',
+    install: ['pip install keeto'],
+    badge: 'v0.2.1',
     github: 'https://github.com/bythebug/keeto',
-    version: '0.2.1',
+    links: [
+      { label: 'PyPI ↗', url: 'https://pypi.org/project/keeto/', primary: true },
+      { label: 'GitHub ↗', url: 'https://github.com/bythebug/keeto' },
+    ],
+  },
+  {
+    name: 'kursor',
+    tagline: 'Global hotkey LLM text inserter for macOS. Option+Space, type, it pastes at your cursor.',
+    install: ['brew tap bythebug/kursor', 'brew trust bythebug/kursor && brew install kursor'],
+    badge: 'macOS',
+    github: 'https://github.com/bythebug/kursor',
+    links: [
+      { label: 'GitHub ↗', url: 'https://github.com/bythebug/kursor', primary: true },
+    ],
   },
 ];
 
@@ -138,7 +154,7 @@ const groups = [
 const orgs = [
   { name: 'Google',              logo: '/logo-google.svg',     type: 'svg' },
   { name: 'Amazon Web Services', logo: '/logo-aws.svg',        type: 'svg' },
-  { name: 'McGill University',   logo: '/mcgill-logo.svg',     type: 'svg' },
+  { name: 'McGill University',   logo: '/mcgill-logo.svg',     type: 'img' },
   { name: 'Mitacs',              logo: null,                   type: 'text' },
   { name: 'Athabasca University',logo: '/logo-athabasca.svg',  type: 'svg' },
   { name: 'IIT (BHU) Varanasi', logo: '/logo-iitbhu.png',     type: 'img' },
@@ -159,24 +175,40 @@ const orgs = [
         <h1 class="page-title">Projects</h1>
       </div>
 
-      <!-- PyPI packages -->
+      <!-- Installable packages -->
       <div class="pypi-grid">
-        {pypi.map(pkg => (
+        {packages.map(pkg => (
           <div class="pypi-card">
             <div class="pypi-card-top">
               <div class="pypi-name-row">
                 <span class="pypi-name">{pkg.name}</span>
-                <span class="pypi-version">v{pkg.version}</span>
+                <span class="pypi-version">{pkg.badge}</span>
               </div>
               <p class="pypi-tagline">{pkg.tagline}</p>
             </div>
             <div class="pypi-install">
-              <span class="install-prompt">$</span>
-              <code class="install-cmd">{pkg.install}</code>
+              {pkg.install.map(line => (
+                <div class="install-line">
+                  <div class="install-cmd-scroll">
+                    <span class="install-prompt">$</span>
+                    <code class="install-cmd">{line}</code>
+                  </div>
+                  <button type="button" class="copy-btn" data-copy={line} aria-label="Copy command">
+                    <svg class="copy-icon copy-icon--copy" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                      <path d="M3.5 10.5v-6a1 1 0 0 1 1-1h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="copy-icon copy-icon--check" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3.5 8.5l3 3 6-6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              ))}
             </div>
             <div class="pypi-links">
-              <a href={pkg.pypi} target="_blank" rel="noopener noreferrer" class="pypi-link pypi-link--primary">PyPI ↗</a>
-              <a href={pkg.github} target="_blank" rel="noopener noreferrer" class="pypi-link">GitHub ↗</a>
+              {pkg.links.map(link => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer" class={`pypi-link ${link.primary ? 'pypi-link--primary' : ''}`}>{link.label}</a>
+              ))}
             </div>
           </div>
         ))}
@@ -302,6 +334,34 @@ const orgs = [
   </main>
 </Layout>
 
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      btn.classList.add('copied');
+      btn.setAttribute('aria-label', 'Copied');
+      window.clearTimeout(Number(btn.dataset.copyTimeout));
+      const timeout = window.setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.setAttribute('aria-label', 'Copy command');
+      }, 1500);
+      btn.dataset.copyTimeout = String(timeout);
+    });
+  });
+</script>
+
 <style>
   .main {
     padding-top: 5rem;
@@ -327,7 +387,7 @@ const orgs = [
   /* ─── PyPI cards ─── */
   .pypi-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -341,6 +401,7 @@ const orgs = [
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    min-width: 0;
   }
 
   .pypi-card-top { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -373,25 +434,73 @@ const orgs = [
 
   .pypi-install {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.4rem;
     background: color-mix(in srgb, var(--bg) 12%, transparent);
     border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
     padding: 0.6rem 0.9rem;
     font-family: monospace;
-    width: fit-content;
+    max-width: 100%;
+  }
+
+  .install-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 100%;
+  }
+
+  .install-cmd-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    overflow-x: auto;
+    flex: 1;
   }
 
   .install-prompt {
     color: color-mix(in srgb, var(--bg) 40%, transparent);
     font-size: 0.78rem;
     user-select: none;
+    flex-shrink: 0;
   }
 
   .install-cmd {
     font-size: 0.8rem;
     color: var(--bg);
+    white-space: nowrap;
   }
+
+  .copy-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: color-mix(in srgb, var(--bg) 55%, transparent);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .copy-btn:hover {
+    background: color-mix(in srgb, var(--bg) 15%, transparent);
+    color: var(--bg);
+  }
+
+  .copy-icon--check { display: none; }
+
+  .copy-btn.copied {
+    color: #6fcf97;
+  }
+
+  .copy-btn.copied .copy-icon--copy { display: none; }
+  .copy-btn.copied .copy-icon--check { display: block; }
 
   .pypi-links { display: flex; gap: 1rem; }
 
@@ -499,7 +608,7 @@ const orgs = [
   /* ─── Orgs grid ─── */
   .orgs-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -513,6 +622,7 @@ const orgs = [
     justify-content: center;
     padding: clamp(1.5rem, 3vw, 2.25rem) clamp(0.75rem, 1.5vw, 1.25rem);
     transition: background 0.2s;
+    min-width: 0;
   }
 
   .org-cell:hover { background: var(--bg-alt); }
