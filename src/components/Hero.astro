@@ -3,9 +3,9 @@
 
 <section class="hero">
 
-  <div class="hero-bg">
+  <!-- Floating photo — independent of the grid -->
+  <div class="hero-photo-float">
     <img src="/main-dp.png" alt="Suraj Verma" class="hero-photo" />
-    <div class="hero-scrim"></div>
   </div>
 
   <div class="container">
@@ -91,52 +91,24 @@
     padding-top: 4.5rem;
   }
 
-  /* ─── Full-bleed background photo ─── */
-  .hero-bg {
+  /* ─── Floating photo ─── */
+  .hero-photo-float {
     position: absolute;
-    inset: 0;
-    z-index: 0;
+    right: clamp(2rem, 5vw, 6rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(220px, 22vw, 320px);
+    pointer-events: none;
   }
 
   .hero-photo {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center 15%;
     display: block;
+    border-radius: 3px;
   }
-
-  .hero-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.65) 100%);
-  }
-
-  .hero .container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero .hero-name,
-  .hero .meta-title,
-  .hero .tagline,
-  .hero .cta-link,
-  .hero .label {
-    color: #fff;
-  }
-
-  .hero .meta-sub,
-  .hero .social-link {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .hero .social-link:hover { color: #fff; }
-
-  .hero .rule,
-  .hero .meta-right {
-    border-color: rgba(255, 255, 255, 0.25);
-  }
-
-  .hero .period { color: var(--accent); }
 
   /* ─── Name ─── */
   .hero-top {
@@ -169,6 +141,9 @@
     color: var(--accent);
   }
 
+  .hero-inner {
+    padding-right: clamp(240px, 28vw, 400px);
+  }
 
   /* ─── Meta ─── */
   .hero-meta {
@@ -275,6 +250,15 @@
   }
 
   /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .hero-photo-float {
+      display: none;
+    }
+    .hero-inner {
+      padding-right: 0;
+    }
+  }
+
   @media (max-width: 600px) {
     .hero-meta {
       grid-template-columns: 1fr;
