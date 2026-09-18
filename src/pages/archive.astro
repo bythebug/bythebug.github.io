@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 
+const spotifyAlbum = { id: '1pWVWJ1w0dQbNxxlv5SYR4', title: 'Seher Ki Raat', year: '2025' };
+
 const spotifyTracks: { id: string; title: string }[] = [
   { id: '4LkxisFHSq67DVo2gkmMrB', title: 'Pehli Baar Tum'    },
   { id: '0S6e31XW0xPG3t8XucB3rh', title: 'Tere Bina Bhi'    },
@@ -85,60 +87,97 @@ const videoListLd = {
         </a>
       </div>
 
-      <!-- YouTube -->
-      <section class="section-block">
-        <div class="section-label">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </div>
-        <div class="yt-grid">
-          {youtubeIds.map((id) => (
-            <a
-              href={`https://youtu.be/${id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="yt-card"
-            >
-              <img
-                src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-                alt="YouTube video"
-                loading="lazy"
-              />
-              <div class="yt-play">
-                <svg viewBox="0 0 68 48" width="56" height="40">
-                  <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C0 13.05 0 24 0 24s0 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C68 34.95 68 24 68 24s0-10.95-1.48-16.26z" fill="#f00"/>
-                  <path d="M45 24 27 14v20" fill="#fff"/>
-                </svg>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
       <!-- Spotify -->
       <section class="section-block">
         <div class="section-label">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           Spotify
         </div>
-        <div class="sp-grid">
-          {spotifyTracks.map((track) => (
+        <div class="sp-album">
+          <a
+            href={`https://open.spotify.com/album/${spotifyAlbum.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sp-album-art"
+          >
+            <img src="/spotify/album.jpg" alt={spotifyAlbum.title} loading="lazy" />
+            <div class="sp-play">
+              <svg viewBox="0 0 24 24" width="40" height="40">
+                <circle cx="12" cy="12" r="12" fill="#1DB954"/>
+                <path d="M9.5 7.5l7 4.5-7 4.5V7.5z" fill="#fff"/>
+              </svg>
+            </div>
+          </a>
+          <div class="sp-album-info">
             <a
-              href={`https://open.spotify.com/track/${track.id}`}
+              href={`https://open.spotify.com/album/${spotifyAlbum.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="sp-card"
+              class="sp-album-title"
             >
-              <img src="/spotify/album.jpg" alt={track.title} loading="lazy" />
-              <div class="sp-play">
-                <svg viewBox="0 0 24 24" width="40" height="40">
-                  <circle cx="12" cy="12" r="12" fill="#1DB954"/>
-                  <path d="M9.5 7.5l7 4.5-7 4.5V7.5z" fill="#fff"/>
-                </svg>
-              </div>
-              <div class="sp-title">{track.title}</div>
+              {spotifyAlbum.title}
             </a>
-          ))}
+            <span class="sp-album-sub">Album · {spotifyAlbum.year}</span>
+            <ol class="sp-tracklist">
+              {spotifyTracks.map((track, i) => (
+                <li>
+                  <a href={`https://open.spotify.com/track/${track.id}`} target="_blank" rel="noopener noreferrer">
+                    <span class="sp-track-num">{i + 1}</span>
+                    {track.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- YouTube -->
+      <section class="section-block">
+        <div class="section-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </div>
+        <div class="yt-featured">
+          <a
+            href={`https://youtu.be/${youtubeIds[0]}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="yt-featured-thumb"
+          >
+            <img
+              src={`https://img.youtube.com/vi/${youtubeIds[0]}/maxresdefault.jpg`}
+              alt={ytTitles[youtubeIds[0]]}
+              loading="lazy"
+            />
+            <div class="yt-play">
+              <svg viewBox="0 0 68 48" width="56" height="40">
+                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C0 13.05 0 24 0 24s0 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C68 34.95 68 24 68 24s0-10.95-1.48-16.26z" fill="#f00"/>
+                <path d="M45 24 27 14v20" fill="#fff"/>
+              </svg>
+            </div>
+          </a>
+          <div class="yt-featured-info">
+            <a
+              href={`https://youtu.be/${youtubeIds[0]}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="yt-featured-title"
+            >
+              {ytTitles[youtubeIds[0]]}
+            </a>
+            <span class="yt-featured-sub">Latest video</span>
+            <ol class="yt-list">
+              {youtubeIds.slice(1).map((id, i) => (
+                <li>
+                  <a href={`https://youtu.be/${id}`} target="_blank" rel="noopener noreferrer">
+                    <span class="yt-num">{i + 2}</span>
+                    {ytTitles[id]}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
@@ -180,18 +219,18 @@ const videoListLd = {
     margin-bottom: 1.25rem;
   }
 
-  /* ─── YouTube grid ─── */
+  /* ─── YouTube featured + list ─── */
   .section-block {
     margin-bottom: 3.5rem;
   }
 
-  .yt-grid {
+  .yt-featured {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 280px 1fr;
+    gap: 1.75rem;
   }
 
-  .yt-card {
+  .yt-featured-thumb {
     border-radius: 12px;
     overflow: hidden;
     background: #000;
@@ -200,7 +239,7 @@ const videoListLd = {
     aspect-ratio: 16 / 9;
   }
 
-  .yt-card img {
+  .yt-featured-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -208,7 +247,7 @@ const videoListLd = {
     transition: opacity 0.25s;
   }
 
-  .yt-card:hover img { opacity: 0.75; }
+  .yt-featured-thumb:hover img { opacity: 0.75; }
 
   .yt-play {
     position: absolute;
@@ -219,14 +258,67 @@ const videoListLd = {
     pointer-events: none;
   }
 
-  /* ─── Spotify grid ─── */
-  .sp-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+  .yt-featured-info {
+    display: flex;
+    flex-direction: column;
   }
 
-  .sp-card {
+  .yt-featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .yt-featured-title:hover { color: var(--accent); }
+
+  .yt-featured-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .yt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .yt-list li {
+    border-top: 1px solid var(--border);
+  }
+
+  .yt-list li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .yt-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.25rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    transition: color 0.15s;
+  }
+
+  .yt-list a:hover { color: var(--accent); }
+
+  .yt-num {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    width: 1rem;
+  }
+
+  /* ─── Spotify album ─── */
+  .sp-album {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.75rem;
+  }
+
+  .sp-album-art {
     border-radius: 12px;
     overflow: hidden;
     background: #000;
@@ -235,7 +327,7 @@ const videoListLd = {
     aspect-ratio: 1 / 1;
   }
 
-  .sp-card img {
+  .sp-album-art img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -243,7 +335,7 @@ const videoListLd = {
     transition: opacity 0.25s;
   }
 
-  .sp-card:hover img { opacity: 0.7; }
+  .sp-album-art:hover img { opacity: 0.7; }
 
   .sp-play {
     position: absolute;
@@ -254,17 +346,57 @@ const videoListLd = {
     pointer-events: none;
   }
 
-  .sp-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.6rem 0.75rem;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  .sp-album-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sp-album-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .sp-album-title:hover { color: var(--accent); }
+
+  .sp-album-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sp-tracklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .sp-tracklist li {
+    border-top: 1px solid var(--border);
+  }
+
+  .sp-tracklist li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sp-tracklist a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.25rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    transition: color 0.15s;
+  }
+
+  .sp-tracklist a:hover { color: var(--accent); }
+
+  .sp-track-num {
+    color: var(--text-muted);
     font-size: 0.78rem;
-    font-weight: 500;
-    color: #fff;
-    pointer-events: none;
+    width: 1rem;
   }
 
   /* ─── Platform chips ─── */
@@ -296,7 +428,7 @@ const videoListLd = {
   }
 
   @media (max-width: 900px) {
-    .yt-grid { grid-template-columns: 1fr 1fr; }
+    .yt-featured { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 700px) {
@@ -304,6 +436,7 @@ const videoListLd = {
   }
 
   @media (max-width: 600px) {
-    .yt-grid { grid-template-columns: 1fr; }
+    .sp-album { grid-template-columns: 1fr; }
+    .sp-album-art { max-width: 220px; }
   }
 </style>
