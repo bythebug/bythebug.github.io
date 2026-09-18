@@ -27,9 +27,7 @@ Skills: Python, Go, distributed systems, LLM infrastructure, ML pipelines, Redis
 
 ## Blog
 
-- [Why I built keeto — AI observability shouldn't be hard](https://bythebug.github.io/blog/why-i-built-keeto/): Every LLM app I built had the same blind spot: no visibility into what was happening inside. Keeto wraps your LLM calls and logs latency, token counts, model, prompt, and response without changing how you write code.
-- [From backend engineer to content creator: what I learned in year one](https://bythebug.github.io/blog/backend-to-content-creator/): A year of making YouTube videos about software engineering while working full-time — what actually surprised me.
-- [How I structure every LLM project before writing a line of code](https://bythebug.github.io/blog/how-i-structure-llm-projects/): A checklist for LLM project architecture — streaming, caching, fallbacks, observability — before writing any code.
+- [The Wave We're Standing In: Notes on AI in September 2026](https://bythebug.github.io/blog/the-wave-we-are-standing-in/): A narrative tour through where AI actually stands right now: the releases, the timeline arguments, the physical bottlenecks, and the books that saw pieces of it coming.
 
 ## Creator Content
 
